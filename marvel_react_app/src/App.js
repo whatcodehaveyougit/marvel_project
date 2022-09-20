@@ -1,27 +1,19 @@
-import './App.css';
-import { fetchData } from './utils/utils'
-import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Nav from './routes/nav/nav.component'
+import Home from './routes/home/home.component'
+import About from './routes/about/about.component'
+
 
 function App() {
 
-  const [ charactersData, setCharacters ] = useState([])
-
-  const handleClick = async () => {
-    const result = await fetchData()
-    setCharacters( result['data']['results'] );
-  }
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={handleClick}>Click Me</button>
-        {
-          charactersData && charactersData.map(( character ) => (
-            <p>{character.name}</p>
-          ))
-        }
-      </header>
-    </div>
+    <>
+      <Nav />
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/about' element={<About />}></Route>
+      </Routes>
+    </>
   );
 }
 

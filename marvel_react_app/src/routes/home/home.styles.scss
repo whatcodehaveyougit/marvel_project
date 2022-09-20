@@ -1,0 +1,17 @@
+.thumbnail-image {
+    height: 200px
+}
+
+.character-card {
+    height: 450px;
+    text-align: center;
+}
+
+.max-lines{
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+}

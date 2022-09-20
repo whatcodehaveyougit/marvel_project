@@ -3,6 +3,24 @@
 }
 
 .character-card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    button {
+        width: 100%;
+    }
+}
+
+
+.character-card-container {
     height: 450px;
     text-align: center;
 }
@@ -12,6 +30,6 @@
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
-    max-height: 3.6em;
+    max-height: 100px;
     line-height: 1.8em;
 }

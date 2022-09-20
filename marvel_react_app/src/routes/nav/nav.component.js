@@ -1,7 +1,19 @@
+import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom'
+import './nav.styles.scss'
+
 const Nav = () => {
 
     return (
-        <h1>Marvel Application Navbar</h1>
+        <>
+            <div>
+                <Typography align="center" variant="h3">Marvel Application Navbar</Typography>
+            </div>
+            <div className='navbar-links-container'>
+                <Typography><Link to="/">Home</Link></Typography>
+                <Typography><Link to="/about">About</Link></Typography>
+            </div>
+        </>
     )
 }
 

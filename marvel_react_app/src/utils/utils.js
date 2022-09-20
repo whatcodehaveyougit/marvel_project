@@ -13,9 +13,6 @@ const fetchData = async () => {
     const hash = getHash(ts, privateKey, publicKey);
     const url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
-    // console.log('priv key: ' + privateKey);
-    // console.log('public key: ' + publicKey);
-
     try {
         let response = await fetch (url);
         const data = await response.json()

@@ -1,27 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { fetchData } from './utils/utils'
+import { useState } from 'react'
 
 function App() {
 
-  const apiUrl = process.env.API_URL;
-  console.log(apiUrl);
+  const [ charactersData, setCharacters ] = useState([])
 
-  console.log('hello');
+  const handleClick = async () => {
+    const result = await fetchData()
+    setCharacters( result['data']['results'] );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reeeeload. To the date version.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleClick}>Click Me</button>
+        {
+          charactersData && charactersData.map(( character ) => (
+            <p>{character.name}</p>
+          ))
+        }
       </header>
     </div>
   );

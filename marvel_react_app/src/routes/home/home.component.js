@@ -1,21 +1,9 @@
-import { fetchData } from '../../utils/utils'
-import { useState, useEffect } from 'react'
 import { Grid } from '@mui/material';
 import './home.styles.scss'
 import CharacterCard from '../../components/character-card/character-card.componet'
 
-const Home = () => {
+const Home = ( { charactersData } ) => {
 
-    const [ charactersData, setCharacters ] = useState([])
-
-    useEffect(  () => {
-        const fetchPageData = async () => {
-            const result = await fetchData()
-            setCharacters( result['data']['results'] );
-        }
-        fetchPageData()
-            .catch(console.error)
-    }, [])
 
     return (
         <div className="home-container">

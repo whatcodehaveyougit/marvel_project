@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import './character-card.styles.scss'
+import { Link } from 'react-router-dom'
 
 
 const CharacterCard = ( { character } ) => {
@@ -31,7 +32,10 @@ const CharacterCard = ( { character } ) => {
                 </Grid>
             </CardContent>
             <CardActions className="card-actions">
-                <Button variant="contained">Find out more</Button> 
+                <Link class="character-page-link" to={`/character/${character.id}`}>
+                    <Button variant="contained">Find out more</Button> 
+                </Link>
+
             </CardActions>
         </Card>
     )

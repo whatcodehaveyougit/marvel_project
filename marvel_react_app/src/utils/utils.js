@@ -4,9 +4,9 @@ const getHash = (ts, privateKey, publicKey) => {
     return MD5(ts + privateKey + publicKey).toString();
 };
 
-const fetchData = async () => {
+const fetchData = async ( apiRoute ) => {
 
-    const baseUrl = `${process.env.REACT_APP_API_URL}/characters`
+    const baseUrl = `${process.env.REACT_APP_API_URL}${apiRoute}`
     const ts = Date.now().toString()
     const privateKey = process.env.REACT_APP_PRIVATE_KEY;
     const publicKey = process.env.REACT_APP_PUBLIC_KEY;

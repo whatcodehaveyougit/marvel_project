@@ -7,7 +7,7 @@ const Nav = () => {
     return (
         <>
             <div>
-                <Typography align="center" variant="h3">Marvel Application Navbar</Typography>
+                <Typography align="center" variant="h3">Marvel Application!</Typography>
             </div>
             <div className='navbar-links-container'>
                 <Typography><Link to="/">Home</Link></Typography>

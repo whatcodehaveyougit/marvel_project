@@ -1,0 +1,24 @@
+.character-page {
+    text-align: center;
+    background-color: transparent !important;
+    // padding-bottom: 27px;
+    .thumbnail-image {
+        height: 800px;
+        position: relative;
+        width: 100%;
+        border: 1px dotted pink;
+        border-radius: 40px;
+
+    }
+    .character-information {
+        background-color: black;
+        border: 1px solid black;
+        position: absolute;
+        top:0;
+        width: 100%;
+        opacity: 0.80;
+        color: white;
+        height: 760px;
+        padding: 40px 0 0 0;
+    }
+}

@@ -10,7 +10,7 @@ const Home = ( { charactersData } ) => {
             <Grid container spacing={2}>
                 {
                     charactersData && charactersData.map(( character ) => (
-                    <Grid item xs={4} className="character-card-container" key={character.id}>
+                    <Grid item xs={12} sm={6} md={4} className="character-card-container" key={character.id}>
                         <CharacterCard character={character} />
                     </Grid>
                     ))

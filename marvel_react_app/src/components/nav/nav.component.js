@@ -5,15 +5,15 @@ import './nav.styles.scss'
 const Nav = () => {
 
     return (
-        <>
+        <div>
             <div>
                 <Typography align="center" variant="h3">Marvel Application!</Typography>
             </div>
             <div className='navbar-links-container'>
-                <Typography><Link to="/">Home</Link></Typography>
-                <Typography><Link to="/about">About</Link></Typography>
+                <Typography variant="h5"><Link to="/">Home</Link></Typography>
+                <Typography variant="h5"><Link to="/about">About</Link></Typography>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,20 +1,14 @@
 .character-page {
-    text-align: center;
     background-color: transparent !important;
-    // padding-bottom: 27px;
-    .thumbnail-image {
-        height: 1000px;
-        position: relative;
-        width: 100%;
+    .character-page-headings {
+        padding: 20px 0;
     }
     .character-information {
         background-color: black;
-        position: absolute;
-        top:0;
         width: 100%;
         opacity: 0.80;
         color: white;
-        height: 1000px;
+        min-height: 500px;
         padding: 0px;
     }
     .accordion-character-container {

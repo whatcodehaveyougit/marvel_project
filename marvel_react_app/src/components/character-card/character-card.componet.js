@@ -16,7 +16,7 @@ const CharacterCard = ( { character } ) => {
             <CardMedia
                 className="thumbnail-image"
                 component="img"
-                src={`${character['thumbnail']['path']}.jpg`}
+                src={`${character['thumbnail']['path']}.${character['thumbnail']['extension']}`}
                 alt={character.name}
             />
             <CardContent>
@@ -32,7 +32,7 @@ const CharacterCard = ( { character } ) => {
                 </Grid>
             </CardContent>
             <CardActions className="card-actions">
-                <Link class="character-page-link" to={`/character/${character.id}`}>
+                <Link className="character-page-link" to={`/character/${character.id}`}>
                     <Button variant="contained">Find out more</Button> 
                 </Link>
 

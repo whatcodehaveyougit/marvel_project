@@ -35,7 +35,7 @@ const Character = ( {charactersData } ) => {
     }, [] )
 
     useEffect(  () => {
-        if ( charactersData = [] && characterid ) {
+        if ( charactersData == [] && characterid ) {
             const fetchPageData = async () => {
                 const result = await fetchData( apiRouteCharacterData );
                 const result2 = result['data']['results'][0];

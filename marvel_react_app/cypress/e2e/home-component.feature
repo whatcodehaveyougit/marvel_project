@@ -1,11 +1,10 @@
 Feature: Home Component
 
   Scenario: The data from the Marvel API loads correctly
-      Given the user visits the page "/"
-      Then the user should see the string "3-D Man"
-      And the user should see the string "A-Bomb (HAS)"
-      And the user should see the string "A.I.M."
-
+    Given the user visits the page "/"
+    Then the user should see the string "3-D Man"
+    And the user should see the string "A-Bomb (HAS)"
+    And the user should see the string "A.I.M."
 
   Scenario: The home page search box works filters monsters
     Given the user visits the page "/"

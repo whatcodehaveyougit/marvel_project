@@ -12,7 +12,7 @@ const Home = ( { charactersData } ) => {
     const [ charactersDataState, setCharctersDataState ] = useState();
 
     const handleChange = (e) => {
-        const filteredCharacters = charactersData.filter(character => character.name.includes(e.target.value));
+        const filteredCharacters = charactersData.filter(character => character.name.toLowerCase().includes(e.target.value.toLowerCase()));
         setCharctersDataState( filteredCharacters )
     }
 
@@ -25,10 +25,11 @@ const Home = ( { charactersData } ) => {
     return (
         <div className="home-container">
             <div className="search-bar-component">
-                <TextField 
-                placeholder="Search Marvel Characters!" 
-                name="search-monsters" 
-                onChange={handleChange}
+                <input 
+                    placeholder="Search Marvel Characters..." 
+                    name="search-monsters" 
+                    className="search-monsters-input"
+                    onChange={handleChange}
             />
             </div>
             <Grid container spacing={2}>

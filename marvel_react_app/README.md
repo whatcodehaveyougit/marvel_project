@@ -2,10 +2,13 @@
 
 # Marvel App!
 
-This application is dockerized, to run it simply run
+This application is dockerized, to run it simply run the following command from the root folder:
 
-'docker-compose build .' 
-'docker-compose up' 
+' docker-compose up ' 
 
-from the root folder, voila!
 
+### Testing 
+
+This app uses the cypress testing framework so to run the tests run the following command in the root folder: 
+
+' npx cypress run '

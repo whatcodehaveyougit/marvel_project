@@ -27,7 +27,7 @@ const Home = ( { charactersData } ) => {
             <div className="search-bar-component">
                 <TextField 
                 placeholder="Search Marvel Characters!" 
-                name="firstName" 
+                name="search-monsters" 
                 onChange={handleChange}
             />
             </div>

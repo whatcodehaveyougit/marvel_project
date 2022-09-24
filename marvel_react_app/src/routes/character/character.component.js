@@ -25,6 +25,11 @@ const Character = ( {charactersData } ) => {
     const apiRouteComicsData = `/characters/${characterid}/comics`
     const apiRouteCharacterData = `/characters/${characterid}`
 
+    const setBackgroundImageUrlFunction = ( characterData ) => {
+        const backgroundImageUrlConcatenated =  characterData['thumbnail']['path'] + '.' + characterData['thumbnail']['extension']
+        setBackgroundImageUrl( backgroundImageUrlConcatenated )
+    }
+
     useEffect(  () => {
         const fetchPageData = async () => {
             const result = await fetchData( apiRouteComicsData );
@@ -35,22 +40,23 @@ const Character = ( {charactersData } ) => {
     }, [] )
 
     useEffect(  () => {
-        if ( charactersData == [] && characterid ) {
+        // If we are given the character data, use that (it will save us having to do another fetch)
+        if ( charactersData.length > 0 ) {
+            const character = charactersData.find(character => character.id = characterid)
+            setCharacterData( character );
+            setBackgroundImageUrlFunction( character )
+        } else {
             const fetchPageData = async () => {
-                const result = await fetchData( apiRouteCharacterData );
-                const result2 = result['data']['results'][0];
-                setCharacterData( result2 );
-                const backgrounUrlLink =  result2['thumbnail']['path'] + '.' + result2['thumbnail']['extension']
-                setBackgroundImageUrl( backgrounUrlLink )
+                const dataFetched = await fetchData( apiRouteCharacterData );
+                const dataFetchedDrilledInto = dataFetched['data']['results'][0];
+                setCharacterData( dataFetchedDrilledInto );
+                setBackgroundImageUrlFunction( dataFetchedDrilledInto );
             }
             fetchPageData()
                 .catch(console.error)
-        } else {
-            const character = charactersData.find(character => character.id = characterid)
-            setCharacterData( character );
         }
-        
-    }, [ charactersData, characterid] )
+    }, [] )
+
 
     return (
         <>  

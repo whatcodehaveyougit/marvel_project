@@ -1,18 +1,18 @@
-const browserify = require('@cypress/browserify-preprocessor');
-const cucumber = require('cypress-cucumber-preprocessor').default;
+// const browserify = require('@cypress/browserify-preprocessor');
+// const cucumber = require('cypress-cucumber-preprocessor').default;
 
-module.exports = (on, config) => {
-  const options = {
-    ...browserify.defaultOptions,
-    typescript: require.resolve('typescript'),
-  };
+// module.exports = (on, config) => {
+//   const options = {
+//     ...browserify.defaultOptions,
+//     typescript: require.resolve('typescript'),
+//   };
 
-  on('file:preprocessor', cucumber(options));
-  on('task', {
-    log(message) {
-      console.log(message)
+//   on('file:preprocessor', cucumber(options));
+//   on('task', {
+//     log(message) {
+//       console.log(message)
 
-      return null
-    },
-  })
-};
+//       return null
+//     },
+//   })
+// };

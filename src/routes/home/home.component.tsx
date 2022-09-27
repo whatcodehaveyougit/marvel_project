@@ -4,7 +4,7 @@ import {
  } from '@mui/material';
 import './home.styles.scss'
 import CharacterCard from '../../components/character-card/character-card.componet'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, ChangeEvent } from 'react'
 
 export type Character = {
     id: number;
@@ -16,12 +16,16 @@ export type Character = {
     }
   }
 
-const Home = ( { charactersData } ) => {
+export type CharactersDataProps = {
+    charactersData: Character[];
+  }
 
-    const [ charactersDataState, setCharctersDataState ] = useState();
+const Home = ( { charactersData }: CharactersDataProps ) => {
 
-    const handleChange = (e) => {
-        const filteredCharacters = charactersData.filter(character => character.name.toLowerCase().includes(e.target.value.toLowerCase()));
+    const [ charactersDataState, setCharctersDataState ] = useState<Character[]>();
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        const filteredCharacters = charactersData.filter(character => character.name.toLowerCase().includes(event.target.value.toLowerCase()));
         setCharctersDataState( filteredCharacters )
     }
 

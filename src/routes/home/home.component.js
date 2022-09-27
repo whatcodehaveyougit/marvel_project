@@ -4,7 +4,6 @@ import {
  } from '@mui/material';
 import './home.styles.scss'
 import CharacterCard from '../../components/character-card/character-card.componet'
-import SearchBar from '../../components/search-bar/search-bar-component'
 import { useEffect, useState } from 'react'
 
 const Home = ( { charactersData } ) => {

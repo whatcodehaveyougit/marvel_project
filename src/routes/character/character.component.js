@@ -1,7 +1,7 @@
 import './character.styles.scss'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
-import { fetchData } from '../../utils/utils'
+import { fetchData } from '../../utils/utils.ts'
 import {
      Accordion, 
      AccordionSummary,

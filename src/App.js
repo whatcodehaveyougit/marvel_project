@@ -4,7 +4,7 @@ import Home from './routes/home/home.component'
 import About from './routes/about/about.component'
 import Character from './routes/character/character.component'
 import { Grid } from '@mui/material';
-import { fetchData } from './utils/utils'
+import { fetchData } from './utils/utils.ts'
 import { useState, useEffect } from 'react'
 
 

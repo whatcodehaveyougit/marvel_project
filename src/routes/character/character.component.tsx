@@ -1,7 +1,7 @@
 import './character.styles.scss'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
-import { fetchData } from '../../utils/utils.ts'
+import { fetchData } from '../../utils/utils'
 import {
      Accordion, 
      AccordionSummary,
@@ -12,27 +12,31 @@ import {
      Grid,
      Typography
 } from '@mui/material/';
+import { Character, Comic, CharacterAPICall } from '../../types/types'
 
+type CharactersDataProps = {
+    charactersData: Character[];
+}
 
-const Character = ( {charactersData } ) => {
+const CharacterComponent = ( {charactersData }: CharactersDataProps ) => {
 
-    const [ characterComics, setCharacterComics ] = useState()
-    const [ characterData, setCharacterData ] = useState()
-    const [ backgroundImageUrl, setBackgroundImageUrl ] = useState()
+    const [ characterComics, setCharacterComics ] = useState<Comic[]>()
+    const [ characterData, setCharacterData ] = useState<Character>()
+    const [ backgroundImageUrl, setBackgroundImageUrl ] = useState<string>()
 
     const { characterid } = useParams();
 
     const apiRouteComicsData = `/characters/${characterid}/comics`
     const apiRouteCharacterData = `/characters/${characterid}`
 
-    const setBackgroundImageUrlFunction = ( characterData ) => {
+    const setBackgroundImageUrlFunction = ( characterData: Character ): void => {
         const backgroundImageUrlConcatenated =  characterData['thumbnail']['path'] + '.' + characterData['thumbnail']['extension']
         setBackgroundImageUrl( backgroundImageUrlConcatenated )
     }
 
     useEffect(  () => {
         const fetchPageData = async () => {
-            const result = await fetchData( apiRouteComicsData );
+            const result = await fetchData<Comic[]>( apiRouteComicsData );
             setCharacterComics( result['data']['results'] );
         }
         fetchPageData()
@@ -42,12 +46,18 @@ const Character = ( {charactersData } ) => {
     useEffect(  () => {
         // If we are given the character data, use that (it will save us having to do another fetch)
         if ( charactersData.length > 0 ) {
-            const character = charactersData.find(character => character.id = characterid)
-            setCharacterData( character );
-            setBackgroundImageUrlFunction( character )
+            const character = charactersData.find(character => character.id == characterid)
+
+            // Sigurd - This needs fixed.
+            if ( character != undefined ) {
+                setCharacterData( character );
+                setBackgroundImageUrlFunction( character )
+            }
+            
         } else {
             const fetchPageData = async () => {
-                const dataFetched = await fetchData( apiRouteCharacterData );
+                
+                const dataFetched = await fetchData<CharacterAPICall>( apiRouteCharacterData );
                 const dataFetchedDrilledInto = dataFetched['data']['results'][0];
                 setCharacterData( dataFetchedDrilledInto );
                 setBackgroundImageUrlFunction( dataFetchedDrilledInto );
@@ -103,4 +113,4 @@ const Character = ( {charactersData } ) => {
     )
 }
 
-export default Character;
+export default CharacterComponent;

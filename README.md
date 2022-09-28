@@ -20,3 +20,8 @@ You can get a public and private api key from the marvel website by signing up: 
 This app uses the cypress testing framework so to run the tests run the following command in the root folder: 
 
 ' npx cypress run '
+
+
+I added this to the tsConfig: (Need to research it)
+
+"suppressImplicitAnyIndexErrors": true,

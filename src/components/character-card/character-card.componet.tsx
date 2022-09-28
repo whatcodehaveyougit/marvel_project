@@ -7,12 +7,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import './character-card.styles.scss'
 import { Link } from 'react-router-dom'
-import { Character } from '../../routes/home/home.component'
-
-
-type CharacterProps = {
-    character: Character;
-}
+import { CharacterProps } from '../../types/types'
 
 const CharacterCard = ( { character }: CharacterProps ) => {
 

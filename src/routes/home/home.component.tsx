@@ -5,16 +5,7 @@ import {
 import './home.styles.scss'
 import CharacterCard from '../../components/character-card/character-card.componet'
 import { useEffect, useState, ChangeEvent } from 'react'
-
-export type Character = {
-    id: number;
-    name: string;
-    description: string;
-    thumbnail: {
-        path: string;
-        extension: string
-    }
-  }
+import { Character } from '../../types/types'
 
 export type CharactersDataProps = {
     charactersData: Character[];

@@ -7,9 +7,9 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import './character-card.styles.scss'
 import { Link } from 'react-router-dom'
+import { CharacterProps } from '../../types/types'
 
-
-const CharacterCard = ( { character } ) => {
+const CharacterCard = ( { character }: CharacterProps ) => {
 
     return (
         <Card className="character-card">

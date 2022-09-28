@@ -2,24 +2,25 @@ import { Route, Routes } from 'react-router-dom';
 import Nav from './components/nav/nav.component'
 import Home from './routes/home/home.component'
 import About from './routes/about/about.component'
-import Character from './routes/character/character.component'
 import { Grid } from '@mui/material';
 import { fetchData } from './utils/utils'
 import { useState, useEffect } from 'react'
-
+import CharacterComponent from './routes/character/character.component';
+import { Character } from './types/types'
 
 function App() {
 
-  const [ charactersData, setCharacters ] = useState([])
+  const [ charactersData, setCharacters ] = useState<Character[]>([])
 
   useEffect(  () => {
       const fetchPageData = async () => {
-          const result = await fetchData( '/characters' )
+          const result = await fetchData<Character[]>( '/characters' )
           setCharacters( result['data']['results'] );
       }
       fetchPageData()
           .catch(console.error)
   }, [])
+
 
 
   return (
@@ -29,7 +30,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Home charactersData={charactersData} />} />
             <Route path='about' element={<About />} />
-            <Route path='/character/:characterid' element={<Character charactersData={charactersData} />} />
+            <Route path='/character/:characterid' element={<CharacterComponent charactersData={charactersData} />} />
         </Routes>
       </Grid>
 

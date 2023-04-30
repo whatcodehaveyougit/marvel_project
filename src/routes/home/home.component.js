@@ -1,16 +1,15 @@
-import { 
+import {
     Grid,
-    TextField
  } from '@mui/material';
 import './home.styles.scss'
 import CharacterCard from '../../components/character-card/character-card.componet'
-import SearchBar from '../../components/search-bar/search-bar-component'
 import { useEffect, useState } from 'react'
 
 const Home = ( { charactersData } ) => {
 
     const [ charactersDataState, setCharctersDataState ] = useState();
 
+    // console.log(charactersDataState)
     const handleChange = (e) => {
         const filteredCharacters = charactersData.filter(character => character.name.toLowerCase().includes(e.target.value.toLowerCase()));
         setCharctersDataState( filteredCharacters )
@@ -25,9 +24,9 @@ const Home = ( { charactersData } ) => {
     return (
         <div className="home-container">
             <div className="search-bar-component">
-                <input 
-                    placeholder="Search Marvel Characters..." 
-                    name="search-monsters" 
+                <input
+                    placeholder="Search Marvel Characters..."
+                    name="search-monsters"
                     className="search-monsters-input"
                     onChange={handleChange}
             />

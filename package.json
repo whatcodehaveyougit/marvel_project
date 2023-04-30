@@ -18,12 +18,13 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "sass": "^1.54.9",
+    "vitest": "^0.30.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "vitest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,10 +49,13 @@
     "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "and": "0.0.3",
     "cypress": "^10.8.0",
     "install": "^0.13.0",
-    "npm": "^8.19.2"
+    "npm": "^8.19.2",
+    "vite": "^4.3.3"
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": "cypress/e2e/cucumber-test/**/*.{js,ts}"

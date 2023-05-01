@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest"
 import CharacterCard from "../character-card/character-card.componet"
 import React from 'react'
 import { render } from "@testing-library/react"
-
+import { BrowserRouter as Router } from "react-router-dom";
 
 const character = {
   id: '123123',
@@ -15,15 +15,15 @@ const character = {
 }
 
 
-console.log(CharacterCard(character))
-
 describe('CharacterCardTests', () => {
   test('Does a snapshot of the CharacterCard component', () => {
-
     const { container } = render(
-      <CharacterCard
-        character={character}
-      />
+      <Router>
+        <CharacterCard
+          character={character}
+        />
+      </Router>
+
     )
     expect(container).toMatchSnapshot()
 

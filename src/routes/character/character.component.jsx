@@ -16,6 +16,8 @@ import {
 
 const Character = ({ charactersData }) => {
 
+    console.log(charactersData)
+
     const [characterComics, setCharacterComics] = useState()
     const [characterData, setCharacterData] = useState()
     const [backgroundImageUrl, setBackgroundImageUrl] = useState()

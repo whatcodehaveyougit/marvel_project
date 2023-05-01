@@ -12,10 +12,11 @@ const fetchData = async ( apiRoute ) => {
     const publicKey = process.env.REACT_APP_PUBLIC_KEY;
     const hash = getHash(ts, privateKey, publicKey);
     const url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
-
+    console.log('from in here utils' + url )
     try {
         let response = await fetch (url);
         const data = await response.json()
+
         return data;
     } catch ( err ) {
         return err;

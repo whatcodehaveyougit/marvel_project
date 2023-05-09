@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationComponent Snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <h3
+        class="MuiTypography-root MuiTypography-h3 MuiTypography-alignCenter css-47suzj-MuiTypography-root"
+      >
+        <a
+          href="/"
+        >
+          Marvel Application!
+        </a>
+      </h3>
+    </div>
+    <div
+      class="navbar-links-container"
+    >
+      <h5
+        class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+      >
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </h5>
+      <h5
+        class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+      >
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </h5>
+    </div>
+  </div>
+</div>
+`;

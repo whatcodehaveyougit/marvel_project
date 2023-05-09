@@ -2,9 +2,9 @@
 
 This application is dockerized, to run it simply run the following command from the root folder:
 
-' docker-compose up ' 
+' docker-compose up '
 
-NB: You will need to create a .env file in the root folder and use this template: 
+NB: You will need to create a .env file in the root folder and use this template:
 
 ```
 REACT_APP_PRIVATE_KEY={YOUR_KEY}
@@ -14,9 +14,16 @@ REACT_APP_API_URL=http://gateway.marvel.com/v1/public/
 
 You can get a public and private api key from the marvel website by signing up: https://developer.marvel.com/
 
+### Testing
 
-### Testing 
+###### End to end tests
 
-This app uses the cypress testing framework so to run the tests run the following command in the root folder: 
+This app uses the cypress testing framework so to run the tests run the following command in the root folder:
 
-' npx cypress run '
+npx cypress run
+
+###### Unit Tests
+
+To run the unit tests execute the command
+
+npm run test

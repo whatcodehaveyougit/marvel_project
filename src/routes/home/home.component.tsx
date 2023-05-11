@@ -4,14 +4,17 @@ import {
 } from '@mui/material';
 import './home.styles.scss'
 import CharacterCard from '../../components/character-card/character-card.componet'
-import { useEffect, useState, ChangeEvent } from 'react'
+import { useEffect, useState, ChangeEvent, useContext } from 'react'
 import { Character } from '../../types/types'
+import { CharactersContext } from '../../contexts/characters.context';
 
 export type CharactersDataProps = {
     charactersData: Character[];
 }
 
-const Home = ({ charactersData }: CharactersDataProps) => {
+const Home = () => {
+
+    const { charactersData } = useContext(CharactersContext)
 
     const [charactersDataState, setCharctersDataState] = useState<Character[]>();
 

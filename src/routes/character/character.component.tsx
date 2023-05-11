@@ -1,6 +1,6 @@
 import './character.styles.scss'
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { fetchData } from '../../utils/utils'
 import {
     Accordion,
@@ -13,12 +13,11 @@ import {
     Typography
 } from '@mui/material/';
 import { Character, Comic, CharacterAPICall } from '../../types/types'
+import { CharactersContext } from '../../contexts/characters.context';
 
-type CharactersDataProps = {
-    charactersData: Character[];
-}
+const CharacterPage = () => {
 
-const CharacterPage = ({ charactersData }: CharactersDataProps) => {
+    const { charactersData } = useContext(CharactersContext)
 
     const [characterComics, setCharacterComics] = useState<Comic[]>()
     const [characterData, setCharacterData] = useState<Character>()

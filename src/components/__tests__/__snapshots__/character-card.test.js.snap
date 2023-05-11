@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterCard Snapshot 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root character-card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <img
+      alt="The Hulk"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img thumbnail-image css-o69gx8-MuiCardMedia-root"
+      src="this-it-the-path.jpg"
+    />
+    <div
+      class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+    >
+      <h5
+        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+      >
+        The Hulk
+      </h5>
+      <div
+        class="MuiGrid-root max-lines css-vj1n65-MuiGrid-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
+          He is a big monstor
+        </p>
+      </div>
+    </div>
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing card-actions css-1t6e9jv-MuiCardActions-root"
+    >
+      <a
+        class="character-page-link"
+        href="/character/123123"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          Find out more
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -4,6 +4,7 @@ import CharacterCard from "../../components/character-card/character-card.compon
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCharacters } from "../../store/characters/characters.selector";
+import CustomInput from "../../components/input/input";
 
 const Home = () => {
   const charactersData = useSelector(selectCharacters);
@@ -20,12 +21,12 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="search-bar-component">
-        <input
+        <CustomInput
+          type="text"
           placeholder="Search Marvel Characters..."
-          name="search-monsters"
-          className="search-monsters-input"
           value={searchTerm}
           onChange={handleChange}
+          name="search-monsters"
         />
       </div>
       <Grid container spacing={2}>

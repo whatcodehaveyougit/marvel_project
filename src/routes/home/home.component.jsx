@@ -1,25 +1,21 @@
 import { Grid } from "@mui/material";
 import "./home.styles.scss";
 import CharacterCard from "../../components/character-card/character-card.componet";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCharacters } from "../../store/characters/characters.selector";
 
 const Home = () => {
   const charactersData = useSelector(selectCharacters);
-  const [userFilteredCharacters, setUserFilteredCharacters] = useState();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
-    const filteredCharacters = charactersData.filter((character) =>
-      character.name.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    setUserFilteredCharacters(filteredCharacters);
+    setSearchTerm(e.target.value);
   };
-  useEffect(() => {
-    if (charactersData) {
-      setUserFilteredCharacters(charactersData);
-    }
-  }, [charactersData]);
+
+  const filteredCharacters = charactersData.filter((character) =>
+    character.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="home-container">
@@ -28,23 +24,23 @@ const Home = () => {
           placeholder="Search Marvel Characters..."
           name="search-monsters"
           className="search-monsters-input"
+          value={searchTerm}
           onChange={handleChange}
         />
       </div>
       <Grid container spacing={2}>
-        {userFilteredCharacters &&
-          userFilteredCharacters.map((character) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              className="character-card-container"
-              key={character.id}
-            >
-              <CharacterCard character={character} />
-            </Grid>
-          ))}
+        {filteredCharacters.map((character) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            className="character-card-container"
+            key={character.id}
+          >
+            <CharacterCard character={character} />
+          </Grid>
+        ))}
       </Grid>
     </div>
   );

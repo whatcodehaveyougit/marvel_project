@@ -19,9 +19,7 @@ describe('Utils Tesst', () => {
     // process.env.REACT_APP_PUBLIC_KEY=
     // process.env.REACT_APP_API_URL=
 
-    console.log('hello')
     fetchData('characters/1011334')
-    .then(result => console.log(result))
     .then(data => {
       console.log(data)
     })

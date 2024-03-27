@@ -2,20 +2,22 @@ import { Grid } from "@mui/material";
 import "./home.styles.scss";
 import CharacterCard from "../../components/character-card/character-card.componet";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCharacters } from "../../store/characters/characters.selector";
 
-const Home = ({ charactersData }) => {
-  const [charactersDataState, setCharctersDataState] = useState();
+const Home = () => {
+  const charactersData = useSelector(selectCharacters);
+  const [userFilteredCharacters, setUserFilteredCharacters] = useState();
 
   const handleChange = (e) => {
     const filteredCharacters = charactersData.filter((character) =>
       character.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    setCharctersDataState(filteredCharacters);
+    setUserFilteredCharacters(filteredCharacters);
   };
-
   useEffect(() => {
     if (charactersData) {
-      setCharctersDataState(charactersData);
+      setUserFilteredCharacters(charactersData);
     }
   }, [charactersData]);
 
@@ -30,8 +32,8 @@ const Home = ({ charactersData }) => {
         />
       </div>
       <Grid container spacing={2}>
-        {charactersDataState &&
-          charactersDataState.map((character) => (
+        {userFilteredCharacters &&
+          userFilteredCharacters.map((character) => (
             <Grid
               item
               xs={12}

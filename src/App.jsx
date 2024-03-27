@@ -5,30 +5,30 @@ import About from "./routes/about/about.component";
 import Character from "./routes/character/character.component";
 import { Grid } from "@mui/material";
 import { fetchData } from "./utils/utils";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCharacters } from "./features/characters/charactersSlice";
 
 function App() {
-  const [charactersData, setCharacters] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchPageData = async () => {
       const result = await fetchData("/characters");
-      setCharacters(result["data"]["results"]);
+      const resultData = result["data"]["results"];
+      dispatch(setCharacters(resultData));
     };
     fetchPageData().catch(console.error);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       <Grid margin={2}>
         <Nav />
         <Routes>
-          <Route path="/" element={<Home charactersData={charactersData} />} />
+          <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route
-            path="/character/:characterid"
-            element={<Character charactersData={charactersData} />}
-          />
+          <Route path="/character/:characterid" element={<Character />} />
         </Routes>
       </Grid>
     </>

@@ -12,10 +12,13 @@ import {
   Grid,
   Typography,
 } from "@mui/material/";
+import { useSelector } from "react-redux";
+import { selectCharacters } from "../../store/characters/characters.selector";
 
-const Character = ({ charactersData }) => {
+const Character = () => {
   const [characterComics, setCharacterComics] = useState();
   const [characterData, setCharacterData] = useState();
+  const charactersData = useSelector(selectCharacters);
   const [backgroundImageUrl, setBackgroundImageUrl] = useState();
 
   const { characterid } = useParams();

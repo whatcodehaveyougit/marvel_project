@@ -43,7 +43,7 @@ const Character = ({ charactersData }) => {
     // If we are given the character data, use that (it will save us having to do another fetch)
     if (charactersData.length > 0) {
       const character = charactersData.find(
-        (character) => (character.id = characterid)
+        (character) => character.id === Number(characterid)
       );
       setCharacterData(character);
       setBackgroundImageUrlFunction(character);

@@ -27,22 +27,16 @@ const Home = () => {
           value={searchTerm}
           onChange={handleChange}
           name="search-monsters"
+          className="border border-gray-300 rounded-md p-2"
         />
       </div>
-      <Grid container spacing={2}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredCharacters.map((character) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            className="character-card-container"
-            key={character.id}
-          >
+          <div className="character-card-container" key={character.id}>
             <CharacterCard character={character} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
     </div>
   );
 };

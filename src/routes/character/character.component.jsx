@@ -2,18 +2,9 @@ import "./character.styles.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData } from "../../utils/utils";
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-} from "@mui/material/";
 import { useSelector } from "react-redux";
 import { selectCharacters } from "../../store/characters/characters.selector";
+import Accordion from "../../components/accordion/accordion";
 
 const Character = () => {
   const [characterComics, setCharacterComics] = useState();
@@ -63,47 +54,32 @@ const Character = () => {
 
   return (
     <>
-      <Card className="character-page">
+      <div className="character-page bg-gray-100">
         <div
-          className="thumbnail-image"
+          className="thumbnail-image bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImageUrl})` }}
         >
-          <CardContent className="character-information">
-            <Grid className="character-page-headings">
-              <Typography align="center" variant="h3">
+          <div className="character-information p-8">
+            <div className="character-page-headings">
+              <h3 className="text-3xl text-center">
                 {characterData ? characterData.name : null}
-              </Typography>
-              <Typography align="center" variant="h5">
+              </h3>
+              <h5 className="text-lg text-center">
                 List of comics for this character:
-              </Typography>
-            </Grid>
-            <Grid>
+              </h5>
+            </div>
+            <div>
               {characterComics &&
                 characterComics.map((comic) => (
                   <Accordion
-                    className="accordion-character-container"
-                    key={comic.id}
-                  >
-                    <AccordionSummary
-                      // expandIcon={ />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
-                      <Box sx={{ fontWeight: "bold" }}>{comic.title}</Box>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>
-                        {comic.description
-                          ? comic.description
-                          : "No description for this comic ;("}
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
+                    title={comic.title}
+                    description={comic.description}
+                  />
                 ))}
-            </Grid>
-          </CardContent>
+            </div>
+          </div>
         </div>
-      </Card>
+      </div>
     </>
   );
 };

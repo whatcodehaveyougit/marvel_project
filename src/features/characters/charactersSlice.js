@@ -23,9 +23,11 @@ export const charactersSlice = createSlice({
       // State is immutable but under the hood it is generating a new object
       // But this way 'is easier to read'
       state.isLoading = action.payload
+
     },
     setCharactersError: (state, action) => {
       state.error = action.payload
+      state.isLoading = false
     }
   },
 })

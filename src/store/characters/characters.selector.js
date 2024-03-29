@@ -10,3 +10,12 @@ export const selectCharacters = createSelector(
   (characters) => characters.characters
 );
 
+export const selectCharactersLoading = createSelector(
+  [selectCharactersReducer],
+  (characters) => characters.isLoading
+);
+
+export const selectCharactersError = createSelector(
+  [selectCharactersReducer],
+  (characters) => characters.error
+);

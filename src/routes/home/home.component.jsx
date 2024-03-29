@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import "./home.styles.scss";
 import CharacterCard from "../../components/character-card/character-card.componet";
 import { useState } from "react";

@@ -10,6 +10,7 @@ const Accordion = ({ title, description }) => {
   return (
     <div className="accordion-character-container border border-gray-200 rounded my-4">
       <div
+        data-testid="accordion-summary"
         className="accordion-summary p-4 cursor-pointer"
         onClick={toggleAccordion}
       >

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { fetchData } from "../../utils/utils";
 import { useSelector } from "react-redux";
 import { selectCharacters } from "../../store/characters/characters.selector";
-import Accordion from "../../components/accordion/accordion";
+import Accordion from "../../components/accordion/accordion.component";
 
 const Character = () => {
   const [characterComics, setCharacterComics] = useState();
@@ -53,34 +53,32 @@ const Character = () => {
   }, [apiRouteCharacterData, charactersData, characterid]);
 
   return (
-    <>
-      <div className="character-page bg-gray-100">
-        <div
-          className="thumbnail-image bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-        >
-          <div className="character-information p-8">
-            <div className="character-page-headings">
-              <h3 className="text-3xl text-center">
-                {characterData ? characterData.name : null}
-              </h3>
-              <h5 className="text-lg text-center">
-                List of comics for this character:
-              </h5>
-            </div>
-            <div>
-              {characterComics &&
-                characterComics.map((comic) => (
-                  <Accordion
-                    title={comic.title}
-                    description={comic.description}
-                  />
-                ))}
-            </div>
+    <div className="character-page bg-gray-100">
+      <div
+        className="thumbnail-image bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+      >
+        <div className="character-information p-8">
+          <div className="character-page-headings">
+            <h3 className="text-3xl text-center">
+              {characterData ? characterData.name : null}
+            </h3>
+            <h5 className="text-lg text-center">
+              List of comics for this character:
+            </h5>
+          </div>
+          <div>
+            {characterComics &&
+              characterComics.map((comic) => (
+                <Accordion
+                  title={comic.title}
+                  description={comic.description}
+                />
+              ))}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

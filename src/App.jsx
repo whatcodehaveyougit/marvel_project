@@ -15,16 +15,14 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
-      <div>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="/character/:characterid" element={<Character />} />
-        </Routes>
-      </div>
-    </>
+    <div>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="/character/:characterid" element={<Character />} />
+      </Routes>
+    </div>
   );
 }
 

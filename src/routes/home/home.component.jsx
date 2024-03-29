@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="search-bar-component">
+      {/* <div className="search-bar-component">
         <CustomInput
           type="text"
           placeholder="Search Marvel Characters..."
@@ -53,7 +53,7 @@ const Home = () => {
         <div className="text-center text-red-700 text-2xl">
           There was an error fetching the data
         </div>
-      )}
+      )} */}
     </div>
   );
 };

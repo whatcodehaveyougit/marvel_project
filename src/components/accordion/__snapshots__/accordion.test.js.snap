@@ -1,19 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
-  className="accordion-character-container border border-gray-200 rounded my-4"
->
+<DocumentFragment>
   <div
-    className="accordion-summary p-4 cursor-pointer"
-    data-testid="accordion-summary"
-    onClick={[Function]}
+    class="accordion-character-container border border-gray-200 rounded my-4"
   >
-    <h4
-      className="font-bold"
+    <div
+      class="accordion-summary p-4 cursor-pointer"
+      data-testid="accordion-summary"
     >
-      title example
-    </h4>
+      <h4
+        class="font-bold"
+      >
+        title example
+      </h4>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <input
+    value=""
+  />
+</DocumentFragment>
+`;
+
+exports[`renders correctly with props 1`] = `
+<DocumentFragment>
+  <input
+    name="test"
+    placeholder="test"
+    type="text"
+    value=""
+  />
+</DocumentFragment>
+`;

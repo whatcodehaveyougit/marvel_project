@@ -46,3 +46,52 @@ exports[`renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders correctly with another character 1`] = `
+<div
+  className="character-card relative h-full text-center"
+>
+  <img
+    alt="A-Bomb (HAS)"
+    className="w-full h-120 object-cover"
+    src="http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
+  />
+  <div
+    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
+  >
+    <div
+      className="p-4"
+    >
+      <h5
+        className="text-xl font-bold"
+      >
+        A-Bomb (HAS)
+      </h5>
+      <div
+        className="container-1017100 max-lines"
+      >
+        <div
+          className="text-gray-500"
+        >
+          <p
+            id="contentdiv-1017100"
+          >
+            Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="text-center mb-4"
+    >
+      <a
+        className="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
+        href="/character/1017100"
+        onClick={[Function]}
+      >
+        Find out more
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -1,9 +1,8 @@
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
+
 import About from './about.component';
 
 it('renders correctly', () => {
-  const tree = renderer
-    .create(<About />)
-    .toJSON();
+  const tree = render(<About />).asFragment();
   expect(tree).toMatchSnapshot();
 });

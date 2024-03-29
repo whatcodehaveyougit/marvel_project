@@ -1,11 +1,8 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
 import Accordion from './accordion.component';
 
 it('renders correctly', () => {
-  const tree = renderer
-    .create(<Accordion title="title example" description="example description" />)
-    .toJSON();
+  const tree = render(<Accordion title="title example" description="example description" />).asFragment();
   expect(tree).toMatchSnapshot();
 });
 

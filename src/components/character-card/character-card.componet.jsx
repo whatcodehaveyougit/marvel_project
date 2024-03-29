@@ -1,42 +1,40 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./character-card.styles.scss";
 
 const CharacterCard = ({ character }) => {
-  const [isTruncated, setIsTruncated] = useState(false);
-  const containerRef = useRef(null);
-  const containerRef2 = useRef(null);
+  const [numberOfCharactersToShow, setNumberOfCharactersToShow] =
+    useState(null);
+  const containerDiv = useRef(null);
+  const contentDiv = useRef(null);
 
   useEffect(() => {
-    console.log(containerRef2);
-    const container = containerRef;
-    const content = containerRef2;
+    const container = containerDiv;
+    const content = contentDiv;
 
     if (content.current !== null && container.current !== null) {
-      const clientHeight = container.current.clientHeight;
-      const scrollHeight = content.current.scrollHeight;
+      const containerClientHeight = container.current.clientHeight;
+      const contentScrollHeight = content.current.scrollHeight;
 
-      console.log(clientHeight);
-      console.log(scrollHeight);
-
-      if (scrollHeight > clientHeight) {
-        console.log("Content is truncated or overflowing");
+      if (contentScrollHeight > containerClientHeight) {
         const visibleCharacters = Math.floor(
-          (clientHeight / scrollHeight) * content.current.textContent.length
+          (containerClientHeight / contentScrollHeight) *
+            content.current.textContent.length
         );
-        console.log(`Visible characters: ${visibleCharacters}`);
-        const hiddenCharacters =
-          content.current.textContent.length - visibleCharacters;
-        console.log(`Visible characters: ${visibleCharacters}`);
-        console.log(`Hidden characters: ${hiddenCharacters}`);
-        //
-        setIsTruncated(true);
+        setNumberOfCharactersToShow(visibleCharacters);
       } else {
-        setIsTruncated(false);
         console.log("Content is fully visible");
       }
     }
-  }, [containerRef2]);
+  }, [contentDiv, numberOfCharactersToShow]);
+
+  function showFirstNCharacters(string, n) {
+    if (n) {
+      console.log(string.slice(0, n));
+      return string.slice(0, n) + "...";
+    }
+    return string;
+  }
 
   return (
     <div className="character-card relative h-full text-center">
@@ -50,15 +48,17 @@ const CharacterCard = ({ character }) => {
           <h5 className="text-xl font-bold">{character.name}</h5>
 
           <div
-            ref={containerRef}
+            ref={containerDiv}
             className={`container-${character.id} max-lines`}
           >
             {character.description && (
               <div className="text-gray-500">
-                <p ref={containerRef2} id={character.id}>
-                  {character.description}
+                <p ref={contentDiv} id={character.id}>
+                  {showFirstNCharacters(
+                    character.description,
+                    numberOfCharactersToShow
+                  )}
                 </p>
-                {isTruncated && <span className="ellipsis">.....</span>}
               </div>
             )}
             {!character.description && (

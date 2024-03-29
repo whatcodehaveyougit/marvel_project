@@ -1,7 +1,9 @@
 import React from 'react'
-import spinnerimage from '../../assets/spinner.svg'
+import './spinner.scss'
 export default function Spinner() {
   return (
-    <div><img src={spinnerimage} alt="loading spinner" /></div>
+    <div className="loader-container">
+      <div className="spinner"></div>
+    </div>
   )
 }

@@ -12,7 +12,7 @@ import Spinner from "../../components/spinner/spinner";
 const Home = () => {
   const charactersData = useSelector(selectCharacters);
   const [searchTerm, setSearchTerm] = useState("");
-  const isCharactersLoading = useSelector(selectCharactersLoading);
+  const isLoading = useSelector(selectCharactersLoading);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -34,9 +34,10 @@ const Home = () => {
           className="border border-gray-300 rounded-md p-2"
         />
       </div>
-      {isCharactersLoading ? (
+      {isLoading ? (
         <div>
-          <Spinner />
+          {/* <Spinner /> */}
+          Loading
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

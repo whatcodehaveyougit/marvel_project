@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CustomInput renders correctly 1`] = `
 <DocumentFragment>
   <input
     value=""
@@ -8,7 +8,7 @@ exports[`renders correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders correctly with props 1`] = `
+exports[`CustomInput renders correctly with props 1`] = `
 <DocumentFragment>
   <input
     name="test"

@@ -7,16 +7,19 @@ import character from './character.json';
 import character2 from './character2.json';
 import { BrowserRouter } from 'react-router-dom';
 
-it('renders correctly', () => {
-  const tree = renderer
-    .create(<BrowserRouter><CharacterCard character={character} /></BrowserRouter>)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
-it('renders correctly with another character', () => {
-  const tree = renderer
-    .create(<BrowserRouter><CharacterCard character={character2} /></BrowserRouter>)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
+describe('CharacterCard', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<BrowserRouter><CharacterCard character={character} /></BrowserRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders correctly with another character', () => {
+    const tree = renderer
+      .create(<BrowserRouter><CharacterCard character={character2} /></BrowserRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+})

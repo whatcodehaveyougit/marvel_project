@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CharacterCard renders correctly 1`] = `
 <div
   className="character-card relative h-full text-center"
 >
@@ -47,7 +47,7 @@ exports[`renders correctly 1`] = `
 </div>
 `;
 
-exports[`renders correctly with another character 1`] = `
+exports[`CharacterCard renders correctly with another character 1`] = `
 <div
   className="character-card relative h-full text-center"
 >

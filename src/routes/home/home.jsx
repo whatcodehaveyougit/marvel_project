@@ -7,8 +7,8 @@ import {
   selectCharactersLoading,
   selectCharactersError,
 } from "../../store/characters/characters.selector";
-import CustomInput from "../../components/input/input";
-import Spinner from "../../components/spinner/spinner";
+import CustomInput from "../../components/input/input.component";
+import Spinner from "../../components/spinner/spinner.component";
 
 const Home = () => {
   const charactersData = useSelector(selectCharacters);

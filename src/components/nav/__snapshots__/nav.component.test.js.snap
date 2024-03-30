@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders correctly with another character 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1
+        class="text-center text-6xl"
+      >
+        <a
+          class="text-blue-500"
+          href="/"
+        >
+          Marvel Application!
+        </a>
+      </h1>
+    </div>
+    <div
+      class="flex justify-center items-center space-x-6 pt-2 pb-2"
+    >
+      <div>
+        <a
+          class="text-black-500 text-2xl hover:underline"
+          href="/"
+        >
+          Home
+        </a>
+      </div>
+      <div>
+        <a
+          class="text-black-500 text-2xl hover:underline"
+          href="/about"
+        >
+          About
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 
-import About from './about';
+import Character from './character';
 
 it('renders correctly', () => {
-  const tree = render(<About />).asFragment();
+  const tree = render(<Character />).asFragment();
   expect(tree).toMatchSnapshot();
 });

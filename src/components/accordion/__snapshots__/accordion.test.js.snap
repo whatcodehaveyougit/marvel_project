@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Accordion renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="accordion-character-container border border-gray-200 rounded my-4"

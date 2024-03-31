@@ -13,6 +13,7 @@ const Character = () => {
   const [backgroundImageUrl, setBackgroundImageUrl] = useState();
 
   const { characterid } = useParams();
+  console.log(characterid, "characterid");
 
   const apiRouteComicsData = `/characters/${characterid}/comics`;
   const apiRouteCharacterData = `/characters/${characterid}`;
@@ -39,6 +40,7 @@ const Character = () => {
       const character = charactersData.find(
         (character) => character.id === Number(characterid)
       );
+      console.log(character, "character");
       setCharacterData(character);
       setBackgroundImageUrlFunction(character);
     } else {

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="character-page bg-gray-100"
+  >
+    <div
+      class="thumbnail-image bg-cover bg-center"
+      style="background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg);"
+    >
+      <div
+        class="character-information p-8"
+      >
+        <div
+          class="character-page-headings"
+        >
+          <h3
+            class="text-3xl text-center"
+          >
+            3-D Man
+          </h3>
+          <h5
+            class="text-lg text-center"
+          >
+            List of comics for this character:
+          </h5>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

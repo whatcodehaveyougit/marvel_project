@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import Character from './character';
 import { useSelector } from 'react-redux';
-import character from './character.json';
+import character from './character-object.json';
 import { useParams } from 'react-router-dom';
 
 jest.mock('react-redux', () => ({

@@ -5,12 +5,15 @@ import { fetchData } from "../../utils/utils";
 import { useSelector } from "react-redux";
 import { selectCharacters } from "../../store/characters/characters.selector";
 import Accordion from "../../components/accordion/accordion.component";
+import { fetchComicsAsyncThunk } from "../../store/characters/characters.action";
+import { useDispatch } from "react-redux";
 
 const Character = () => {
   const [characterComics, setCharacterComics] = useState();
   const [characterData, setCharacterData] = useState();
   const charactersData = useSelector(selectCharacters);
   const [backgroundImageUrl, setBackgroundImageUrl] = useState();
+  const dispatch = useDispatch();
 
   const { characterid } = useParams();
   console.log(characterid, "characterid");
@@ -27,11 +30,9 @@ const Character = () => {
   };
 
   useEffect(() => {
-    const fetchPageData = async () => {
-      const result = await fetchData(apiRouteComicsData);
-      setCharacterComics(result["data"]["results"]);
-    };
-    fetchPageData().catch(console.error);
+    if (characterid) {
+      dispatch(fetchComicsAsyncThunk(characterid));
+    }
   }, [apiRouteComicsData]);
 
   useEffect(() => {

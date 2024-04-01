@@ -2,6 +2,7 @@
   "name": "marvel_react_app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@cypress/webpack-preprocessor": "^5.12.2",
     "@emotion/react": "^11.10.4",

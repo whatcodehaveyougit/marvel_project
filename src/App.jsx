@@ -5,7 +5,7 @@ import About from "./routes/about/about";
 import Character from "./routes/character/character";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import fetchCharactersAsync from "./store/characters/characters.action";
+import { fetchCharactersAsync } from "./store/characters/characters.action";
 
 function App() {
   const dispatch = useDispatch();

@@ -17,7 +17,7 @@ const fetchData = async ( apiRoute ) => {
         const data = await response.json()
         return data;
     } catch ( err ) {
-        return err;
+        return 'Fetch Failed: ' + err;
     }
 
 }

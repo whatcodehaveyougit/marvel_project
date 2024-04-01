@@ -1,7 +1,7 @@
 import { setCharactersLoading, setCharacters, setCharactersError  } from "../../features/characters/charactersSlice";
 import { fetchData } from "../../utils/utils";
 
-// Moving out synchornous code into being handle by the redux-thunk middleware
+// Move out synchornous code from component so that it is handled by the redux-thunk middleware
 // Our the App.jsx file will dispatch this action creator and not need to know about the async code
  const fetchCharactersAsync = () => async (dispatch) => {
   dispatch(setCharactersLoading(true));
@@ -15,4 +15,27 @@ import { fetchData } from "../../utils/utils";
   }
 }
 
-export default fetchCharactersAsync;
+const fetchComicsAsyncThunk = (characterid) => async (characterid, dispatch) => {
+  // const characterid = '1017100'
+  // console.log(characterid, 'characterid')
+  const apiRouteComicsData = `/characters/${characterid}/comics`;
+// Set is Comics Loading
+  try {
+    const result = await fetchData(apiRouteComicsData);
+    const resultData = result["data"]["results"];
+    return resultData;
+// Set is Comics no longer loading
+  } catch (error) {
+    console.log('this is an error')
+  }
+}
+
+// useEffect(() => {
+//   const fetchPageData = async () => {
+//     const result = await fetchData(apiRouteComicsData);
+//     setCharacterComics(result["data"]["results"]);
+//   };
+//   fetchPageData().catch(console.error);
+// }, [apiRouteComicsData]);
+
+export { fetchCharactersAsync, fetchComicsAsyncThunk };

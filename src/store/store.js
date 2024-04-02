@@ -1,4 +1,5 @@
-import charactersSlice, { setCharacters } from '../features/characters/charactersSlice.js'
+import charactersSlice from '../features/characters/charactersSlice.js'
+import characterSlice from '../features/character/characterSlice.js'
 import { configureStore } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
 
@@ -9,6 +10,7 @@ export const store = configureStore({
     // which is a combination of all the reducers in our app
     // Not an object of all the reduvers which is what we have here
     characters: charactersSlice,
+    character: characterSlice
   },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 })

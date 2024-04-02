@@ -15,29 +15,20 @@ import { fetchData } from "../../utils/utils";
   }
 }
 
-
-//  A thunk is a function which returns a function which takes dispatch
-const fetchComicsAsyncThunk = (characterid) => async (characterid, dispatch) => {
-  // const characterid = '1017100'
-  // console.log(characterid, 'characterid')
-  const apiRouteComicsData = `/characters/${characterid}/comics`;
-// Set is Comics Loading
-  try {
-    const result = await fetchData(apiRouteComicsData);
-    const resultData = result["data"]["results"];
-    return resultData;
-// Set is Comics no longer loading
-  } catch (error) {
-    console.log('this is an error')
-  }
-}
-
-// useEffect(() => {
-//   const fetchPageData = async () => {
+// //  A thunk is a function which returns a function which takes dispatch
+// const fetchComicsAsyncThunk = () => async (dispatch) => {
+//   const characterid = '1017100'
+//   // console.log(characterid, 'characterid')
+//   const apiRouteComicsData = `/characters/${characterid}/comics`;
+// // Set is Comics Loading
+//   try {
 //     const result = await fetchData(apiRouteComicsData);
-//     setCharacterComics(result["data"]["results"]);
-//   };
-//   fetchPageData().catch(console.error);
-// }, [apiRouteComicsData]);
+//     const resultData = result["data"]["results"];
+//     return resultData;
+// // Set is Comics no longer loading
+//   } catch (error) {
+//     console.log('this is an error')
+//   }
+// }
 
-export { fetchCharactersAsync, fetchComicsAsyncThunk };
+export { fetchCharactersAsync };

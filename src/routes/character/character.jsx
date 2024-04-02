@@ -1,39 +1,34 @@
-import "./character.styles.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchData } from "../../utils/utils";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCharacters } from "../../store/characters/characters.selector";
 import Accordion from "../../components/accordion/accordion.component";
-import { fetchComicsAsyncThunk } from "../../store/characters/characters.action";
-import { useDispatch } from "react-redux";
+import { fetchComicsAsyncThunk } from "../../store/character/character.action";
+import { fetchData } from "../../utils/utils";
+import "./character.styles.scss";
+import { setCharacterComics } from "../../features/character/characterSlice";
 
 const Character = () => {
-  const [characterComics, setCharacterComics] = useState();
   const [characterData, setCharacterData] = useState();
-  const charactersData = useSelector(selectCharacters);
-  const [backgroundImageUrl, setBackgroundImageUrl] = useState();
   const dispatch = useDispatch();
 
-  const { characterid } = useParams();
-  console.log(characterid, "characterid");
-
-  const apiRouteComicsData = `/characters/${characterid}/comics`;
-  const apiRouteCharacterData = `/characters/${characterid}`;
-
-  const setBackgroundImageUrlFunction = (characterData) => {
-    const backgroundImageUrlConcatenated =
-      characterData["thumbnail"]["path"] +
-      "." +
-      characterData["thumbnail"]["extension"];
-    setBackgroundImageUrl(backgroundImageUrlConcatenated);
-  };
-
   useEffect(() => {
-    if (characterid) {
-      dispatch(fetchComicsAsyncThunk(characterid));
-    }
-  }, [apiRouteComicsData]);
+    dispatch(setCharacterComics([]));
+  }, [dispatch]);
+
+  const { characterid } = useParams();
+  const apiRouteCharacterData = `/characters/${characterid}`;
+  useEffect(() => {
+    dispatch(fetchComicsAsyncThunk(characterid));
+  }, [dispatch, characterid]);
+
+  const charactersData = useSelector(selectCharacters);
+  const characterComicsVar = useSelector(
+    (state) => state.character.characterComics
+  );
+  const characterComicsLoading = useSelector(
+    (state) => state.character.characterComicsLoading
+  );
 
   useEffect(() => {
     // If we are given the character data, use that (it will save us having to do another fetch)
@@ -41,25 +36,35 @@ const Character = () => {
       const character = charactersData.find(
         (character) => character.id === Number(characterid)
       );
-      console.log(character, "character");
       setCharacterData(character);
-      setBackgroundImageUrlFunction(character);
     } else {
       const fetchPageData = async () => {
         const dataFetched = await fetchData(apiRouteCharacterData);
         const dataFetchedDrilledInto = dataFetched["data"]["results"][0];
         setCharacterData(dataFetchedDrilledInto);
-        setBackgroundImageUrlFunction(dataFetchedDrilledInto);
       };
       fetchPageData().catch(console.error);
     }
   }, [apiRouteCharacterData, charactersData, characterid]);
 
+  const generateBackgroundImageUrl = (characterData) => {
+    if (characterData) {
+      const backgroundImageUrlConcatenated =
+        characterData["thumbnail"]["path"] +
+        "." +
+        characterData["thumbnail"]["extension"];
+      return backgroundImageUrlConcatenated;
+    }
+    return "";
+  };
+
   return (
     <div className="character-page bg-gray-100">
       <div
         className="thumbnail-image bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+        style={{
+          backgroundImage: `url(${generateBackgroundImageUrl(characterData)})`,
+        }}
       >
         <div className="character-information p-8">
           <div className="character-page-headings">
@@ -71,13 +76,18 @@ const Character = () => {
             </h5>
           </div>
           <div>
-            {characterComics &&
-              characterComics.map((comic) => (
+            {characterComicsLoading ? (
+              <div>Loading...</div>
+            ) : (
+              characterComicsVar &&
+              characterComicsVar.map((comic) => (
                 <Accordion
                   title={comic.title}
                   description={comic.description}
+                  key={comic.id}
                 />
-              ))}
+              ))
+            )}
           </div>
         </div>
       </div>

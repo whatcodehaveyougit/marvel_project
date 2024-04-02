@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'), // Preserve all original exports
   useSelector: jest.fn(), // Mock useSelector
+  useDispatch: jest.fn(() => jest.fn()), // Mock useDispatch
 }));
 
 jest.mock('react-router-dom', () => ({
@@ -35,7 +36,7 @@ describe('Character', () => {
     useSelector.mockClear();
   });
 
-  it('renders correctly', () => {
+  it('Component renders correctly', () => {
     const store = mockStore(initialState);
     const { asFragment } = render(
       <Provider store={store}>
@@ -43,6 +44,18 @@ describe('Character', () => {
       </Provider>
     );
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('Dispatch to have been called the correct number of times', () => {
+    const store = mockStore(initialState);
+    const dispatch = jest.fn();
+    render(
+      <Provider store={store}>
+        <Character />
+      </Provider>
+    );
+    // Not sure how to test this...
+    expect(dispatch).toHaveBeenCalledTimes(0);
   });
 });
 

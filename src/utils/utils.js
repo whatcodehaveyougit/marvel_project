@@ -5,7 +5,6 @@ const getHash = (ts, privateKey, publicKey) => {
 };
 
 const fetchData = async ( apiRoute ) => {
-
     const baseUrl = `${process.env.REACT_APP_API_URL}${apiRoute}`
     const ts = Date.now().toString()
     const privateKey = process.env.REACT_APP_PRIVATE_KEY;
@@ -19,7 +18,17 @@ const fetchData = async ( apiRoute ) => {
     } catch ( err ) {
         return 'Fetch Failed: ' + err;
     }
-
 }
 
-export { fetchData };
+const generateBackgroundImageUrl = (characterData) => {
+    if (characterData) {
+      const backgroundImageUrlConcatenated =
+        characterData["thumbnail"]["path"] +
+        "." +
+        characterData["thumbnail"]["extension"];
+      return backgroundImageUrlConcatenated;
+    }
+    return "";
+  };
+
+export { fetchData, generateBackgroundImageUrl };

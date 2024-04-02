@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  characterComics: [],
+  comics: [],
+  data: null,
   isLoading: false,
   error: null
 }
@@ -12,7 +13,7 @@ export const characterSlice = createSlice({
   initialState,
   reducers: {
     setCharacterComics: (state, action) => {
-      state.characterComics = action.payload
+      state.comics = action.payload
     },
     setCharacterComicsLoading: (state, action) => {
       state.isLoading = action.payload
@@ -20,11 +21,21 @@ export const characterSlice = createSlice({
     setCharacterComicsError: (state, action) => {
       state.error = action.payload
       state.isLoading = false
-    }
+    },
+    setCharacterData: (state, action) => {
+      state.data = action.payload
+    },
+    setCharacterDataLoading: (state, action) => {
+      state.isLoading = action.payload
+    },
+    setCharacterDataError: (state, action) => {
+      state.error = action.payload
+      state.isLoading = false
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setCharacterComics, setCharacterComicsLoading, setCharacterComicsError } = characterSlice.actions
+export const { setCharacterComics, setCharacterComicsLoading, setCharacterComicsError, setCharacterData, setCharacterDataLoading, setCharacterDataError } = characterSlice.actions
 
 export default characterSlice.reducer

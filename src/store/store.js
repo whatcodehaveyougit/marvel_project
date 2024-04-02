@@ -1,5 +1,5 @@
-import charactersSlice from '../features/characters/charactersSlice.js'
-import characterSlice from '../features/character/characterSlice.js'
+import charactersSlice from './characters/charactersSlice.js'
+import characterSlice from './character/characterSlice.js'
 import { configureStore } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
 

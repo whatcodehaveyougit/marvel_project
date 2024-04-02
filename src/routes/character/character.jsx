@@ -1,62 +1,39 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCharacters } from "../../store/characters/characters.selector";
 import Accordion from "../../components/accordion/accordion.component";
-import { fetchComicsAsyncThunk } from "../../store/character/character.action";
-import { fetchData } from "../../utils/utils";
+import {
+  fetchCharacterComicsAsync,
+  fetchCharacterDataAsync,
+} from "../../store/character/character.action";
+import { generateBackgroundImageUrl } from "../../utils/utils";
 import "./character.styles.scss";
-import { setCharacterComics } from "../../features/character/characterSlice";
+import {
+  setCharacterComics,
+  setCharacterData,
+} from "../../store/character/characterSlice";
+import {
+  selectCharacterComics,
+  selectIsCharacterComicsLoading,
+  selectCharacterData,
+} from "../../store/character/character.selector";
+import Spinner from "../../components/spinner/spinner.component";
 
 const Character = () => {
-  const [characterData, setCharacterData] = useState();
   const dispatch = useDispatch();
+
+  const { characterid } = useParams();
 
   useEffect(() => {
     dispatch(setCharacterComics([]));
-  }, [dispatch]);
-
-  const { characterid } = useParams();
-  const apiRouteCharacterData = `/characters/${characterid}`;
-  useEffect(() => {
-    dispatch(fetchComicsAsyncThunk(characterid));
+    dispatch(setCharacterData(null));
+    dispatch(fetchCharacterComicsAsync(characterid));
+    dispatch(fetchCharacterDataAsync(characterid));
   }, [dispatch, characterid]);
 
-  const charactersData = useSelector(selectCharacters);
-  const characterComicsVar = useSelector(
-    (state) => state.character.characterComics
-  );
-  const characterComicsLoading = useSelector(
-    (state) => state.character.characterComicsLoading
-  );
-
-  useEffect(() => {
-    // If we are given the character data, use that (it will save us having to do another fetch)
-    if (charactersData.length > 0) {
-      const character = charactersData.find(
-        (character) => character.id === Number(characterid)
-      );
-      setCharacterData(character);
-    } else {
-      const fetchPageData = async () => {
-        const dataFetched = await fetchData(apiRouteCharacterData);
-        const dataFetchedDrilledInto = dataFetched["data"]["results"][0];
-        setCharacterData(dataFetchedDrilledInto);
-      };
-      fetchPageData().catch(console.error);
-    }
-  }, [apiRouteCharacterData, charactersData, characterid]);
-
-  const generateBackgroundImageUrl = (characterData) => {
-    if (characterData) {
-      const backgroundImageUrlConcatenated =
-        characterData["thumbnail"]["path"] +
-        "." +
-        characterData["thumbnail"]["extension"];
-      return backgroundImageUrlConcatenated;
-    }
-    return "";
-  };
+  const characterComicsArr = useSelector(selectCharacterComics);
+  const characterComicsLoading = useSelector(selectIsCharacterComicsLoading);
+  const characterData = useSelector(selectCharacterData);
 
   return (
     <div className="character-page bg-gray-100">
@@ -77,10 +54,10 @@ const Character = () => {
           </div>
           <div>
             {characterComicsLoading ? (
-              <div>Loading...</div>
+              <Spinner />
             ) : (
-              characterComicsVar &&
-              characterComicsVar.map((comic) => (
+              characterComicsArr &&
+              characterComicsArr.map((comic) => (
                 <Accordion
                   title={comic.title}
                   description={comic.description}

@@ -1,4 +1,4 @@
-import { setCharactersLoading, setCharacters, setCharactersError  } from "../../features/characters/charactersSlice";
+import { setCharactersLoading, setCharacters, setCharactersError  } from "./charactersSlice";
 import { fetchData } from "../../utils/utils";
 
 // Move out synchornous code from component so that it is handled by the redux-thunk middleware
@@ -16,7 +16,7 @@ import { fetchData } from "../../utils/utils";
 }
 
 // //  A thunk is a function which returns a function which takes dispatch
-// const fetchComicsAsyncThunk = () => async (dispatch) => {
+// const fetchCharacterComicsAsync = () => async (dispatch) => {
 //   const characterid = '1017100'
 //   // console.log(characterid, 'characterid')
 //   const apiRouteComicsData = `/characters/${characterid}/comics`;

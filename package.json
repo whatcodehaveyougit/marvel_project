@@ -29,7 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "update": "jest  --updateSnapshot",
+    "update": "jest -- --coverage --updateSnapshot",
     "coverage": "jest --coverage",
     "eject": "react-scripts eject"
   },

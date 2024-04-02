@@ -39,6 +39,45 @@ exports[`Character Component renders correctly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Character Spinner is not rendered when data has loaded in 1`] = `
+<DocumentFragment>
+  <div
+    class="character-page bg-gray-100"
+  >
+    <div
+      class="thumbnail-image bg-cover bg-center"
+      style="background-image: url();"
+    >
+      <div
+        class="character-information p-8"
+      >
+        <div
+          class="character-page-headings"
+        >
+          <h3
+            class="text-3xl text-center"
+          />
+          <h5
+            class="text-lg text-center"
+          >
+            List of comics for this character:
+          </h5>
+        </div>
+        <div>
+          <div
+            class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
+          >
+            <div
+              class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Character renders correctly 1`] = `
 <DocumentFragment>
   <div

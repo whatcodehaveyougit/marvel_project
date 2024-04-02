@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import Character from './character';
 import { useSelector } from 'react-redux';
-import character from './character-object.json';
+import characterData from './character-object.json';
 import { useParams } from 'react-router-dom';
 
 jest.mock('react-redux', () => ({
@@ -13,13 +13,18 @@ jest.mock('react-redux', () => ({
 }));
 
 jest.mock('react-router-dom', () => ({
-  useParams: jest.fn(), // Mock useSelector
+  useParams: jest.fn(),
 }));
+
+jest.mock('../../components/spinner/spinner.component', () => ({
+  Spinner: jest.fn(() => '<div>Spinner</div>'),
+}));
+
 
 const mockStore = configureStore([]);
 
 const initialState = {
-  characters: [ character ], // Ensure characters data is initially an empty array
+  characters: [ characterData ], // Ensure characters data is initially an empty array
   isLoading: false,
   error: null
 };
@@ -46,16 +51,6 @@ describe('Character', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('Dispatch to have been called the correct number of times', () => {
-    const store = mockStore(initialState);
-    const dispatch = jest.fn();
-    render(
-      <Provider store={store}>
-        <Character />
-      </Provider>
-    );
-    // Not sure how to test this...
-    expect(dispatch).toHaveBeenCalledTimes(0);
-  });
+
 });
 

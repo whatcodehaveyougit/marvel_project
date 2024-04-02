@@ -22,11 +22,13 @@ const fetchData = async ( apiRoute ) => {
 
 const generateBackgroundImageUrl = (characterData) => {
     if (characterData) {
-      const backgroundImageUrlConcatenated =
-        characterData["thumbnail"]["path"] +
-        "." +
-        characterData["thumbnail"]["extension"];
-      return backgroundImageUrlConcatenated;
+      if(characterData["thumbnail"]){
+        const backgroundImageUrlConcatenated =
+          characterData["thumbnail"]["path"] +
+          "." +
+          characterData["thumbnail"]["extension"];
+        return backgroundImageUrlConcatenated;
+      }
     }
     return "";
   };

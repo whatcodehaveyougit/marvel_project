@@ -15,6 +15,8 @@ import { fetchData } from "../../utils/utils";
   }
 }
 
+
+//  A thunk is a function which returns a function which takes dispatch
 const fetchComicsAsyncThunk = (characterid) => async (characterid, dispatch) => {
   // const characterid = '1017100'
   // console.log(characterid, 'characterid')

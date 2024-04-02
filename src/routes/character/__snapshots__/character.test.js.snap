@@ -1,112 +1,269 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Character Component renders correctly 1`] = `
-<DocumentFragment>
-  <div
-    class="character-page bg-gray-100"
-  >
-    <div
-      class="thumbnail-image bg-cover bg-center"
-      style="background-image: url();"
-    >
+exports[`Character Accordion of comics is rendered when data has loaded in 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        class="character-information p-8"
+        class="character-page bg-gray-100"
       >
         <div
-          class="character-page-headings"
+          class="thumbnail-image bg-cover bg-center"
+          style="background-image: url();"
         >
-          <h3
-            class="text-3xl text-center"
-          />
-          <h5
-            class="text-lg text-center"
-          >
-            List of comics for this character:
-          </h5>
-        </div>
-        <div>
           <div
-            class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
+            class="character-information p-8"
           >
             <div
-              class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"
-            />
+              class="character-page-headings"
+            >
+              <h3
+                class="text-3xl text-center"
+              >
+                THe hulk
+              </h3>
+              <h5
+                class="text-lg text-center"
+              >
+                List of comics for this character:
+              </h5>
+            </div>
+            <div>
+              <div
+                class="accordion-character-container border border-gray-200 rounded my-4"
+              >
+                <div
+                  class="accordion-summary p-4 cursor-pointer"
+                  data-testid="accordion-summary"
+                >
+                  <h4
+                    class="font-bold"
+                  >
+                    FREE COMIC BOOK DAY 2013 1 (2013) #1
+                  </h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Character Spinner is not rendered when data has loaded in 1`] = `
-<DocumentFragment>
-  <div
-    class="character-page bg-gray-100"
-  >
+  </body>,
+  "container": <div>
     <div
-      class="thumbnail-image bg-cover bg-center"
-      style="background-image: url();"
+      class="character-page bg-gray-100"
     >
       <div
-        class="character-information p-8"
+        class="thumbnail-image bg-cover bg-center"
+        style="background-image: url();"
       >
         <div
-          class="character-page-headings"
+          class="character-information p-8"
         >
-          <h3
-            class="text-3xl text-center"
-          />
-          <h5
-            class="text-lg text-center"
-          >
-            List of comics for this character:
-          </h5>
-        </div>
-        <div>
           <div
-            class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
+            class="character-page-headings"
           >
+            <h3
+              class="text-3xl text-center"
+            >
+              THe hulk
+            </h3>
+            <h5
+              class="text-lg text-center"
+            >
+              List of comics for this character:
+            </h5>
+          </div>
+          <div>
             <div
-              class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"
-            />
+              class="accordion-character-container border border-gray-200 rounded my-4"
+            >
+              <div
+                class="accordion-summary p-4 cursor-pointer"
+                data-testid="accordion-summary"
+              >
+                <h4
+                  class="font-bold"
+                >
+                  FREE COMIC BOOK DAY 2013 1 (2013) #1
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</DocumentFragment>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`Character renders correctly 1`] = `
-<DocumentFragment>
-  <div
-    class="character-page bg-gray-100"
-  >
-    <div
-      class="thumbnail-image bg-cover bg-center"
-      style="background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg);"
-    >
+exports[`Character Spinner is rendered when there is no comic book data but the data is loading 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        class="character-information p-8"
+        class="character-page bg-gray-100"
       >
         <div
-          class="character-page-headings"
+          class="thumbnail-image bg-cover bg-center"
+          style="background-image: url();"
         >
-          <h3
-            class="text-3xl text-center"
+          <div
+            class="character-information p-8"
           >
-            3-D Man
-          </h3>
-          <h5
-            class="text-lg text-center"
-          >
-            List of comics for this character:
-          </h5>
+            <div
+              class="character-page-headings"
+            >
+              <h3
+                class="text-3xl text-center"
+              />
+              <h5
+                class="text-lg text-center"
+              >
+                List of comics for this character:
+              </h5>
+            </div>
+            <div>
+              Spinner
+            </div>
+          </div>
         </div>
-        <div />
       </div>
     </div>
-  </div>
-</DocumentFragment>
+  </body>,
+  "container": <div>
+    <div
+      class="character-page bg-gray-100"
+    >
+      <div
+        class="thumbnail-image bg-cover bg-center"
+        style="background-image: url();"
+      >
+        <div
+          class="character-information p-8"
+        >
+          <div
+            class="character-page-headings"
+          >
+            <h3
+              class="text-3xl text-center"
+            />
+            <h5
+              class="text-lg text-center"
+            >
+              List of comics for this character:
+            </h5>
+          </div>
+          <div>
+            Spinner
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

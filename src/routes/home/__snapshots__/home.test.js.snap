@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly with character data 1`] = `
+<DocumentFragment>
+  <div
+    class="home-container"
+  >
+    <div
+      class="search-bar-component"
+    >
+      <input
+        class="border border-gray-300 rounded-md p-2"
+        data-testid="custom-input"
+        name="search-monsters"
+        placeholder="Search Marvel Characters..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+    >
+      <div
+        class="character-card-container"
+      >
+        &lt;CharacterCard /&gt;
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Home renders error correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="home-container"
+  >
+    <div
+      class="search-bar-component"
+    >
+      <input
+        class="border border-gray-300 rounded-md p-2"
+        data-testid="custom-input"
+        name="search-monsters"
+        placeholder="Search Marvel Characters..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+    />
+    <div
+      class="text-center text-red-700 text-2xl"
+    >
+      There was an error fetching the data
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Home renders spinner when data is loading 1`] = `
+<DocumentFragment>
+  <div
+    class="home-container"
+  >
+    <div
+      class="search-bar-component"
+    >
+      <input
+        class="border border-gray-300 rounded-md p-2"
+        data-testid="custom-input"
+        name="search-monsters"
+        placeholder="Search Marvel Characters..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div>
+      &lt;Spinner /&gt;
+    </div>
+  </div>
+</DocumentFragment>
+`;

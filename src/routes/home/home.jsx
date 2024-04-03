@@ -19,7 +19,6 @@ const Home = () => {
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
-
   const filteredCharacters = charactersData.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -29,6 +28,7 @@ const Home = () => {
       <div className="search-bar-component">
         <CustomInput
           type="text"
+          data-testid="custom-input"
           placeholder="Search Marvel Characters..."
           value={searchTerm}
           onChange={handleChange}

@@ -22,12 +22,12 @@ jest.mock('../../components/spinner/spinner.component', () => jest.fn(() => 'Spi
 
 const mockStore = configureStore([]);
 
-const initialState = {
-  characters: [ characterData ], // TO FIX: Ensure characters data is initially an empty array
-  isLoading: false,
-  error: null,
-  comics: [],
-};
+// const initialState = {
+//   characters: [ characterData ], // TO FIX: Ensure characters data is initially an empty array
+//   isLoading: false,
+//   error: null,
+//   comics: [],
+// };
 
 describe('Character', () => {
   // const useSelectorMock = jest.spyOn(reactRedux, 'useSelector')

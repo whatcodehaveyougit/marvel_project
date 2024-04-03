@@ -2,9 +2,7 @@
 
 exports[`CustomInput renders correctly 1`] = `
 <DocumentFragment>
-  <input
-    value=""
-  />
+  <input />
 </DocumentFragment>
 `;
 
@@ -14,7 +12,6 @@ exports[`CustomInput renders correctly with props 1`] = `
     name="test"
     placeholder="test"
     type="text"
-    value=""
   />
 </DocumentFragment>
 `;

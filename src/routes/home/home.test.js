@@ -74,7 +74,6 @@ describe('Home', () => {
     expect(tree).toMatchSnapshot();
   });
   it('user types into input', () => {
-    console.log(screen)
     render(<Home />);
 
     const input = screen.queryByTestId('custom-input')

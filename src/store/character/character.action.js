@@ -16,28 +16,32 @@ const fetchCharacterComicsAsync = (characterid) => async (dispatch) => {
     dispatch(setCharacterComicsLoading(false));
   } catch (error) {
     dispatch(setCharacterComicsError(error));
+    dispatch(setCharacterComicsLoading(false));
   }
 }
 
+
+// This does not working....
+// May need to pass it as an argument to the function
+// const charactersData = useSelector(selectCharacters);
+
+// Try and get Character data locally first if it is already loaded in the character array ?
+// const character = charactersData.find(
+//   (character) => character.id === Number(characterid)
+// );
+
 const fetchCharacterDataAsync = (characterid) => async (dispatch) => {
   const apiRouteCharacterData = `/characters/${characterid}`;
-
-  // This does not working....
-  // May need to pass it as an argument to the function
-  // const charactersData = useSelector(selectCharacters);
-
-  // Try and get Character data locally first if it is already loaded in the character array ?
-  // const character = charactersData.find(
-  //   (character) => character.id === Number(characterid)
-  // );
-
-
   dispatch(setCharacterDataLoading(true));
   try {
-    const dataFetched = await fetchData(apiRouteCharacterData);
-    const dataFetchedDrilledInto = dataFetched["data"]["results"][0];
-    dispatch(setCharacterData(dataFetchedDrilledInto));
+    const result = await fetchData(apiRouteCharacterData);
+    const resultData = result["data"]["results"][0];
+    console.log(resultData, 'resultData'  )
+    dispatch(setCharacterData(resultData));
+    dispatch(setCharacterDataLoading(false));
+
   } catch (error) {
+    dispatch(setCharacterDataLoading(false));
     dispatch(setCharacterDataError(error));
   }
 };

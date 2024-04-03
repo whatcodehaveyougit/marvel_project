@@ -36,7 +36,6 @@ const fetchCharacterDataAsync = (characterid) => async (dispatch) => {
   try {
     const result = await fetchData(apiRouteCharacterData);
     const resultData = result["data"]["results"][0];
-    console.log(resultData, 'resultData'  )
     dispatch(setCharacterData(resultData));
     dispatch(setCharacterDataLoading(false));
 

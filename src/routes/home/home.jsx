@@ -1,5 +1,5 @@
 import "./home.styles.scss";
-import CharacterCard from "../../components/character-card/character-card.componet";
+import CharacterCard from "../../components/character-card/character-card.component";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import {

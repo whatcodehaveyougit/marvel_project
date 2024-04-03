@@ -1,97 +1,307 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CharacterCard renders correctly 1`] = `
-<div
-  className="character-card relative h-full text-center"
->
-  <img
-    alt="3-D Man"
-    className="w-full h-120 object-cover"
-    src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
-  />
-  <div
-    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
-  >
-    <div
-      className="p-4"
-    >
-      <h5
-        className="text-xl font-bold"
-      >
-        3-D Man
-      </h5>
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="container-1011334 max-lines"
+        class="character-card relative h-full text-center"
       >
-        <div>
-          <p
-            className="text-gray-500"
+        <img
+          alt="3-D Man"
+          class="w-full h-120 object-cover"
+          src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+        />
+        <div
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
+        >
+          <div
+            class="p-4"
           >
-            No superpowers ;(
-          </p>
+            <h5
+              class="text-xl font-bold"
+            >
+              3-D Man
+            </h5>
+            <div
+              class="container-1011334 max-lines"
+            >
+              <div
+                class="text-gray-500"
+              >
+                <p
+                  id="contentdiv-1011334"
+                >
+                  What an interesting description!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-center mb-4"
+          >
+            <a
+              class="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
+              href="/character/1011334"
+            >
+              Find out more
+            </a>
+          </div>
         </div>
       </div>
     </div>
+  </body>,
+  "container": <div>
     <div
-      className="text-center mb-4"
+      class="character-card relative h-full text-center"
     >
-      <a
-        className="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
-        href="/character/1011334"
-        onClick={[Function]}
+      <img
+        alt="3-D Man"
+        class="w-full h-120 object-cover"
+        src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+      />
+      <div
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
       >
-        Find out more
-      </a>
+        <div
+          class="p-4"
+        >
+          <h5
+            class="text-xl font-bold"
+          >
+            3-D Man
+          </h5>
+          <div
+            class="container-1011334 max-lines"
+          >
+            <div
+              class="text-gray-500"
+            >
+              <p
+                id="contentdiv-1011334"
+              >
+                What an interesting description!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="text-center mb-4"
+        >
+          <a
+            class="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
+            href="/character/1011334"
+          >
+            Find out more
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CharacterCard renders correctly with another character 1`] = `
-<div
-  className="character-card relative h-full text-center"
->
-  <img
-    alt="A-Bomb (HAS)"
-    className="w-full h-120 object-cover"
-    src="http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
-  />
-  <div
-    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
-  >
-    <div
-      className="p-4"
-    >
-      <h5
-        className="text-xl font-bold"
-      >
-        A-Bomb (HAS)
-      </h5>
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="container-1017100 max-lines"
+        class="character-card relative h-full text-center"
       >
+        <img
+          alt="A-Bomb (HAS)"
+          class="w-full h-120 object-cover"
+          src="http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
+        />
         <div
-          className="text-gray-500"
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
         >
-          <p
-            id="contentdiv-1017100"
+          <div
+            class="p-4"
           >
-            Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! 
-          </p>
+            <h5
+              class="text-xl font-bold"
+            >
+              A-Bomb (HAS)
+            </h5>
+            <div
+              class="container-1017100 max-lines"
+            >
+              <div
+                class="text-gray-500"
+              >
+                <p
+                  id="contentdiv-1017100"
+                >
+                  Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-center mb-4"
+          >
+            <a
+              class="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
+              href="/character/1017100"
+            >
+              Find out more
+            </a>
+          </div>
         </div>
       </div>
     </div>
+  </body>,
+  "container": <div>
     <div
-      className="text-center mb-4"
+      class="character-card relative h-full text-center"
     >
-      <a
-        className="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
-        href="/character/1017100"
-        onClick={[Function]}
+      <img
+        alt="A-Bomb (HAS)"
+        class="w-full h-120 object-cover"
+        src="http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
+      />
+      <div
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-white"
       >
-        Find out more
-      </a>
+        <div
+          class="p-4"
+        >
+          <h5
+            class="text-xl font-bold"
+          >
+            A-Bomb (HAS)
+          </h5>
+          <div
+            class="container-1017100 max-lines"
+          >
+            <div
+              class="text-gray-500"
+            >
+              <p
+                id="contentdiv-1017100"
+              >
+                Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! 
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="text-center mb-4"
+        >
+          <a
+            class="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded block"
+            href="/character/1017100"
+          >
+            Find out more
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

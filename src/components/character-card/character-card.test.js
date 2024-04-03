@@ -1,25 +1,22 @@
-
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 // Question - Can I use thse instead of renderer ?
-import renderer from 'react-test-renderer';
-import CharacterCard from './character-card.componet';
-import character from './character.json';
-import character2 from './character2.json';
+import CharacterCard from './character-card.component';
+import character from './testData/character.json';
+import character2 from './testData/character2.json';
 import { BrowserRouter } from 'react-router-dom';
 
 
 describe('CharacterCard', () => {
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<BrowserRouter><CharacterCard character={character} /></BrowserRouter>)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = render(<BrowserRouter><CharacterCard character={character} /></BrowserRouter>);
+    expect(screen.getByText(character.name)).toBeInTheDocument();
+    expect(view).toMatchSnapshot()
   });
 
   it('renders correctly with another character', () => {
-    const tree = renderer
-      .create(<BrowserRouter><CharacterCard character={character2} /></BrowserRouter>)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = render(<BrowserRouter><CharacterCard character={character2} /></BrowserRouter>);
+    expect(screen.getByText(character2.name)).toBeInTheDocument();
+    expect(view).toMatchSnapshot()
   });
-})
+
+});

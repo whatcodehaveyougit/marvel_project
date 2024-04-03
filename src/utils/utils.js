@@ -31,6 +31,13 @@ const generateBackgroundImageUrl = (characterData) => {
       }
     }
     return "";
-  };
+};
 
-export { fetchData, generateBackgroundImageUrl };
+function showFirstNCharacters(string, n) {
+  if (n) {
+    return string.slice(0, n) + "...";
+  }
+  return string;
+}
+
+export { fetchData, generateBackgroundImageUrl, showFirstNCharacters };

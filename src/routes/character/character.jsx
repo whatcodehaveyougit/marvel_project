@@ -21,9 +21,7 @@ import Spinner from "../../components/spinner/spinner.component";
 
 const Character = () => {
   const dispatch = useDispatch();
-
   const { characterid } = useParams();
-
   useEffect(() => {
     dispatch(setCharacterComics([]));
     dispatch(setCharacterData(null));

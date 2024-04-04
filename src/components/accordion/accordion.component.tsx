@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from "react";
 
-const Accordion = ({ title, description }) => {
-  const [isOpen, setIsOpen] = useState(false);
+type AccordionProps = {
+  title: string;
+  description: string;
+};
+
+const Accordion = ({ title, description }: AccordionProps): JSX.Element => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);

@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import { TCharactersStore } from '../../types/types';
 
-const initialState = {
+const initialState: TCharactersStore = {
   data: [],
   isLoading: false,
   error: null

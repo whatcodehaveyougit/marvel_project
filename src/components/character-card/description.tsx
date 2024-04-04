@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { showFirstNCharacters } from "../../utils/utils";
+import { showFirstNCharacters } from "../../utils/utils.ts";
 
 function Description({ character }) {
   const [numberOfCharactersToShow, setNumberOfCharactersToShow] =

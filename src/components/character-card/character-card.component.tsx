@@ -1,8 +1,14 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./character-card.styles.scss";
-import Description from "./description";
+import Description from "./description.tsx";
+import { TCharacter } from "../../types/types";
 
-const CharacterCard = ({ character }) => {
+type CharacterCardProps = {
+  character: TCharacter;
+};
+
+const CharacterCard = ({ character }: CharacterCardProps): JSX.Element => {
   return (
     <div className="character-card relative h-full text-center">
       <img

@@ -1,25 +1,25 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Accordion from "../../components/accordion/accordion.component";
+import Accordion from "../../components/accordion/accordion.component.tsx";
 import {
   fetchCharacterComicsAsync,
   fetchCharacterDataAsync,
-} from "../../store/character/character.action";
-import { generateBackgroundImageUrl } from "../../utils/utils";
+} from "../../store/character/character.action.ts";
+import { generateBackgroundImageUrl } from "../../utils/utils.ts";
 import "./character.styles.scss";
 import {
   setCharacterComics,
   setCharacterData,
-} from "../../store/character/characterSlice";
+} from "../../store/character/characterSlice.ts";
 import {
   selectCharacterComics,
   selectIsCharacterComicsLoading,
   selectCharacterData,
-} from "../../store/character/character.selector";
-import Spinner from "../../components/spinner/spinner.component";
+} from "../../store/character/character.selector.ts";
+import Spinner from "../../components/spinner/spinner.component.tsx";
 
-const Character = () => {
+const Character = (): JSX.Element => {
   const dispatch = useDispatch();
   const { characterid } = useParams();
   useEffect(() => {

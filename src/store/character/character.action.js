@@ -1,8 +1,6 @@
 import { setCharacterComics, setCharacterComicsError, setCharacterComicsLoading  } from "./characterSlice";
 import { setCharacterData, setCharacterDataError, setCharacterDataLoading } from "./characterSlice";
 import { fetchData } from "../../utils/utils";
-import { useSelector } from "react-redux";
-import { selectCharacters } from "../characters/characters.selector";
 
 
 //  A thunk is a function which returns a function which takes dispatch

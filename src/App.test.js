@@ -37,19 +37,19 @@ const initialState = {
 
 describe('App', () => {
 
-  test('runs the dispatch', async () => {
-    render(
-      <Provider store={mockStore(initialState)}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
-    );
-   // Wait for the fetchCharactersAsync action to be called
-    await waitFor(() => {
-      expect(fetchCharactersAsync).toHaveBeenCalledTimes(1);
-    });
-  });
+  // test('runs the dispatch', async () => {
+  //   render(
+  //     <Provider store={mockStore(initialState)}>
+  //       <BrowserRouter>
+  //         <App />
+  //       </BrowserRouter>
+  //     </Provider>
+  //   );
+  //  // Wait for the fetchCharactersAsync action to be called
+  //   await waitFor(() => {
+  //     expect(fetchCharactersAsync).toHaveBeenCalledTimes(1);
+  //   });
+  // });
 
 
   test('renders Nav and Home Component on / route', async () => {

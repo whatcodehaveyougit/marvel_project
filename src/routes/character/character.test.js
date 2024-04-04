@@ -9,9 +9,9 @@ import { useParams } from 'react-router-dom';
 import * as reactRedux from 'react-redux'
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'), // Preserve all original exports
+  ...jest.requireActual('react-redux'),
   useSelector: jest.fn(),
-  useDispatch: jest.fn(() => jest.fn()), // Mock useDispatch
+  useDispatch: jest.fn(() => jest.fn()),
 }));
 
 jest.mock('react-router-dom', () => ({
@@ -27,24 +27,9 @@ describe('Character', () => {
 
   beforeEach(() => {
     // Set up useSelector mock to return initialState.characters
-    // useSelectorMock.mockReturnValue(initialState);
     useParams.mockReturnValue({ characterid: 1011334 });
   });
 
-  afterEach(() => {
-    // Clear mock implementation after each test
-    // useSelector.mockClear();
-  });
-
-  // it('Component renders correctly', () => {
-  //   const store = mockStore(initialState);
-  //   const { asFragment } = render(
-  //     <Provider store={store}>
-  //       <Character />
-  //     </Provider>
-  //   );
-  //   expect(asFragment()).toMatchSnapshot();
-  // });
 
   it('Spinner is rendered when there is no comic book data but the data is loading', () => {
     const initialState = {
@@ -70,7 +55,7 @@ describe('Character', () => {
 
   it('Accordion of comics is rendered when data has loaded in', () => {
     const initialState1 = {
-      characters: [ characterData ], // TO FIX: Ensure characters data is initially an empty array
+      characters: [],
       isLoading: false,
       error: null,
       character: {

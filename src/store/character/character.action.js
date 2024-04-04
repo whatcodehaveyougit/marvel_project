@@ -1,6 +1,7 @@
 import { setCharacterComics, setCharacterComicsError, setCharacterComicsLoading  } from "./characterSlice";
 import { setCharacterData, setCharacterDataError, setCharacterDataLoading } from "./characterSlice";
 import { fetchData } from "../../utils/utils";
+import {store} from "../store"
 
 
 //  A thunk is a function which returns a function which takes dispatch
@@ -18,29 +19,30 @@ const fetchCharacterComicsAsync = (characterid) => async (dispatch) => {
   }
 }
 
-
-// This does not working....
-// May need to pass it as an argument to the function
-// const charactersData = useSelector(selectCharacters);
-
-// Try and get Character data locally first if it is already loaded in the character array ?
-// const character = charactersData.find(
-//   (character) => character.id === Number(characterid)
-// );
-
 const fetchCharacterDataAsync = (characterid) => async (dispatch) => {
-  const apiRouteCharacterData = `/characters/${characterid}`;
-  dispatch(setCharacterDataLoading(true));
-  try {
-    const result = await fetchData(apiRouteCharacterData);
-    const resultData = result["data"]["results"][0];
-    dispatch(setCharacterData(resultData));
-    dispatch(setCharacterDataLoading(false));
+  // Check if characters are already present in the store - performance optimisation
+  const { characters } = store.getState().characters;
+  if (characters.length === 0) {
+    const apiRouteCharacterData = `/characters/${characterid}`;
+    dispatch(setCharacterDataLoading(true));
+    try {
+      const result = await fetchData(apiRouteCharacterData);
+      const resultData = result["data"]["results"][0];
+      dispatch(setCharacterData(resultData));
+      dispatch(setCharacterDataLoading(false));
 
-  } catch (error) {
+    } catch (error) {
+      dispatch(setCharacterDataLoading(false));
+      dispatch(setCharacterDataError(error));
+    }
+  } else {
+    const characterData = characters.find(
+      (character) => character.id === Number(characterid)
+    );
+    dispatch(setCharacterData(characterData));
     dispatch(setCharacterDataLoading(false));
-    dispatch(setCharacterDataError(error));
   }
+
 };
 
 

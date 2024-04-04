@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  characters: [],
+  data: [],
   isLoading: false,
   error: null
 }
@@ -12,7 +12,7 @@ export const charactersSlice = createSlice({
   initialState,
   reducers: {
     setCharacters: (state, action) => {
-      state.characters = action.payload
+      state.data = action.payload
     },
     // Could be that
     // But instead the above is shorthand for the below

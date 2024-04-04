@@ -17,7 +17,6 @@ import {
   selectIsCharacterComicsLoading,
   selectCharacterData,
 } from "../../store/character/character.selector";
-import { selectCharacters } from "../../store/characters/characters.selector";
 import Spinner from "../../components/spinner/spinner.component";
 
 const Character = () => {

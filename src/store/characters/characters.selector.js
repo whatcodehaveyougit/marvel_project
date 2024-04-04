@@ -7,7 +7,7 @@ const selectCharactersReducer = (state) => state.characters;
 
 export const selectCharacters = createSelector(
   [selectCharactersReducer],
-  (characters) => characters.characters
+  (characters) => characters.data
 );
 
 export const selectCharactersLoading = createSelector(

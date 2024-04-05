@@ -19,7 +19,6 @@ const fetchCharacterDataAsync =
       try {
         const result = await fetchData(apiRouteCharacterData);
         const resultData = result[0];
-        console.log(resultData, "resultData");
         dispatch(setCharacterData(resultData));
         dispatch(setCharacterDataLoading(false));
       } catch (error) {

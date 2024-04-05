@@ -26,7 +26,6 @@ export const charactersSlice = createSlice({
       state.isLoading = action.payload;
     },
     setCharactersError: (state, action: TSetErrorAction) => {
-      console.log(action.payload, "action.payload");
       state.error = action.payload;
     },
   },

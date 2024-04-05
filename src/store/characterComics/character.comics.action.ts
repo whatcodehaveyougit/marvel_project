@@ -11,7 +11,6 @@ import { Dispatch } from "@reduxjs/toolkit";
 const fetchCharacterComicsAsync =
   (characterid: Number) => async (dispatch: Dispatch) => {
     dispatch(setCharacterComicsLoading(true));
-    console.log("fetchCharacterComicsAsync");
     const apiRouteComicsData = `/characters/${characterid}/comics`;
     try {
       const resultData = await fetchData(apiRouteComicsData);

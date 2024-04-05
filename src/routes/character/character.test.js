@@ -51,7 +51,6 @@ describe('Character', () => {
       </Provider>
     );
     expect(view).toMatchSnapshot();
-  });
 
   it('Accordion of comics is rendered when data has loaded in', () => {
     const initialState1 = {

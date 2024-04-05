@@ -1,25 +1,27 @@
 import "./home.styles.scss";
-import CharacterCard from "../../components/character-card/character-card.component";
-import { useState } from "react";
+import CharacterCard from "../../components/character-card/character-card.component.tsx";
+import React, { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   selectCharacters,
   selectCharactersLoading,
   selectCharactersError,
-} from "../../store/characters/characters.selector";
-import CustomInput from "../../components/input/input.component";
-import Spinner from "../../components/spinner/spinner.component";
+} from "../../store/characters/characters.selector.ts";
+import CustomInput from "../../components/input/input.component.tsx";
+import Spinner from "../../components/spinner/spinner.component.tsx";
+import { TCharacter } from "../../types/types.tsx";
 
 const Home = () => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const charactersData = useSelector(selectCharacters);
-  const [searchTerm, setSearchTerm] = useState("");
   const isLoading = useSelector(selectCharactersLoading);
   const isError = useSelector(selectCharactersError);
+  console.log(isError, "isError");
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(e.target.value);
   };
-  const filteredCharacters = charactersData.filter((character) =>
+  const filteredCharacters = charactersData?.filter((character: TCharacter) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -42,7 +44,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {filteredCharacters.map((character) => (
+          {filteredCharacters?.map((character) => (
             <div className="character-card-container" key={character.id}>
               <CharacterCard character={character} />
             </div>

@@ -1,4 +1,4 @@
-import { characterSlice } from './characterSlice';
+import { characterSlice } from './character.slice';
 
 const {
   setCharacterComics,

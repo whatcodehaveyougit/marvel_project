@@ -1,11 +1,11 @@
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import About from "./routes/about/about";
-import Character from "./routes/character/character";
-import Nav from "./components/nav/nav.component";
-import Home from "./routes/home/home";
-import { fetchCharactersAsync } from "./store/characters/characters.action";
+import About from "./routes/about/about.tsx";
+import Character from "./routes/character/character.tsx";
+import Nav from "./components/nav/nav.component.tsx";
+import Home from "./routes/home/home.tsx";
+import { fetchCharactersAsync } from "./store/characters/characters.action.ts";
 
 function App() {
   const dispatch = useDispatch();

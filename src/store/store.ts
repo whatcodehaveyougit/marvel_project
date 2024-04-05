@@ -1,20 +1,17 @@
-import charactersSlice from './characters/charactersSlice.js'
-import characterSlice from './character/characterSlice.js'
-import { configureStore } from '@reduxjs/toolkit'
-import logger from 'redux-logger'
-
+import charactersSlice from "./characters/charactersSlice.ts";
+import characterSlice from "./character/character.slice.ts";
+import characterComicsSlice from "./characterComics/character.comics.slice.ts";
+import { configureStore } from "@reduxjs/toolkit";
+// import logger from "redux-logger";
 
 export const store = configureStore({
   reducer: {
-    // Refactor: Here we should be passing the root reducer,
-    // which is a combination of all the reducers in our app
-    // Not an object of all the reduvers which is what we have here
     characters: charactersSlice,
-    character: characterSlice
+    character: characterSlice,
+    characterComics: characterComicsSlice,
   },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-})
-
+});
 
 // Have added type module to package.json
 // "type": "module",

@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
-import { showFirstNCharacters } from "../../utils/utils";
+import { showFirstNCharacters } from "../../utils/utils.ts";
+import { TCharacter } from "../../types/types.ts";
 
-function Description({ character }) {
-  const [numberOfCharactersToShow, setNumberOfCharactersToShow] =
-    useState(null);
-  const containerDiv = useRef(null);
-  const contentDiv = useRef(null);
+type DescriptionCardProps = {
+  character: TCharacter;
+};
+
+function Description({ character }: DescriptionCardProps): JSX.Element {
+  const [numberOfCharactersToShow, setNumberOfCharactersToShow] = useState<
+    null | number
+  >(null);
+  const containerDiv = useRef<null | HTMLDivElement>(null);
+  const contentDiv = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
-    // console.log("container", containerDiv.current);
-    // console.log("content", contentDiv.current);
-    // console.log(character);
     if (containerDiv && contentDiv) {
       const container = containerDiv.current;
       const content = contentDiv.current;
@@ -19,15 +22,10 @@ function Description({ character }) {
         const containerClientHeight = container.clientHeight;
         const contentScrollHeight = content.scrollHeight;
 
-        // Why are these not showing the heights of the elements as expected?
-        // But the code still works.
-        // console.log(containerClientHeight);
-        // console.log(contentScrollHeight);
-
         if (contentScrollHeight > containerClientHeight) {
           const visibleCharacters = Math.floor(
             (containerClientHeight / contentScrollHeight) *
-              (content.textContent.length - 3) // Adjust for the length of the ellipsis
+              ((content.textContent?.length ?? 0) - 3) // Adjust for the length of the ellipsis
           );
           setNumberOfCharactersToShow(visibleCharacters);
         }

@@ -7,7 +7,7 @@ import {
 } from "../../types/types";
 
 const initialState: TCharactersStore = {
-  data: [],
+  data: null,
   isLoading: false,
   error: null,
 };
@@ -26,8 +26,8 @@ export const charactersSlice = createSlice({
       state.isLoading = action.payload;
     },
     setCharactersError: (state, action: TSetErrorAction) => {
+      console.log(action.payload, "action.payload");
       state.error = action.payload;
-      state.isLoading = false;
     },
   },
 });

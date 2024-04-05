@@ -12,8 +12,7 @@ const fetchCharactersAsync = () => async (dispatch: Dispatch) => {
   dispatch(setCharactersLoading(true));
   try {
     const result = await fetchData("/characters");
-    const resultData = result["data"]["results"];
-    dispatch(setCharacters(resultData));
+    dispatch(setCharacters(result));
     dispatch(setCharactersLoading(false));
   } catch (error) {
     dispatch(setCharactersError(error));

@@ -16,6 +16,7 @@ const Home = () => {
   const charactersData = useSelector(selectCharacters);
   const isLoading = useSelector(selectCharactersLoading);
   const isError = useSelector(selectCharactersError);
+  console.log(isError, "isError");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(e.target.value);

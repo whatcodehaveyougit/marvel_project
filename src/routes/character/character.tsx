@@ -2,21 +2,18 @@ import { useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Accordion from "../../components/accordion/accordion.component.tsx";
-import {
-  fetchCharacterComicsAsync,
-  fetchCharacterDataAsync,
-} from "../../store/character/character.action.ts";
+import { fetchCharacterDataAsync } from "../../store/character/character.action.ts";
+import { fetchCharacterComicsAsync } from "../../store/characterComics/character.comics.action.ts";
 import { generateBackgroundImageUrl } from "../../utils/utils.ts";
 import "./character.styles.scss";
-import {
-  setCharacterComics,
-  setCharacterData,
-} from "../../store/character/characterSlice.ts";
+import { setCharacterData } from "../../store/character/character.slice.ts";
+import { setCharacterComics } from "../../store/characterComics/character.comics.slice.ts";
 import {
   selectCharacterComics,
   selectIsCharacterComicsLoading,
-  selectCharacterData,
-} from "../../store/character/character.selector.ts";
+  selectCharacterComicsError,
+} from "../../store/characterComics/character.comics.selector.ts";
+import { selectCharacterData } from "../../store/character/character.selector.ts";
 import Spinner from "../../components/spinner/spinner.component.tsx";
 
 const Character = (): JSX.Element => {
@@ -31,6 +28,11 @@ const Character = (): JSX.Element => {
 
   const characterComicsArr = useSelector(selectCharacterComics);
   const characterComicsLoading = useSelector(selectIsCharacterComicsLoading);
+  const characterComicsError = useSelector(selectCharacterComicsError);
+
+  console.log("character component");
+  console.log(characterComicsArr, "characterComicsArr");
+  console.log(characterComicsLoading, "characterComicsLoading");
   const characterData = useSelector(selectCharacterData);
 
   return (
@@ -51,17 +53,18 @@ const Character = (): JSX.Element => {
             </h5>
           </div>
           <div>
-            {characterComicsLoading ? (
-              <Spinner />
-            ) : (
-              characterComicsArr &&
+            {characterComicsLoading === true && <Spinner />}
+            {characterComicsArr &&
+              characterComicsLoading !== true &&
               characterComicsArr.map((comic) => (
                 <Accordion
                   title={comic.title}
                   description={comic.description}
                   key={comic.id}
                 />
-              ))
+              ))}
+            {characterComicsError && (
+              <p className="text-3xl text-center">{characterComicsError}</p>
             )}
           </div>
         </div>

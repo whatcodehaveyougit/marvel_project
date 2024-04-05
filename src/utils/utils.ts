@@ -1,7 +1,8 @@
 import MD5 from "crypto-js/md5";
 import { TCharacter } from "../types/types";
+import axios from "axios";
 
-const getHash = (ts: number, privateKey: string, publicKey: string) => {
+const getHash = (ts: string, privateKey: string, publicKey: string) => {
   return MD5(ts + privateKey + publicKey).toString();
 };
 
@@ -14,11 +15,10 @@ const fetchData = async (apiRoute: string) => {
   const hash = getHash(ts, privateKey, publicKey);
   const url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
   try {
-    let response = await fetch(url);
-    const data = await response.json();
-    return data;
+    let response = await axios.get(url);
+    return response["data"]["data"]["results"];
   } catch (err) {
-    return "Fetch Failed: " + err;
+    throw Error(err);
   }
 };
 

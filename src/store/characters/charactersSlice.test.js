@@ -7,13 +7,10 @@ const initialState = {
 }
 
 describe('charactersSlice', () => {
-
   it('Returns initial redux store state as no state or action is passed in', () => {
     const reducerReturnValue = charactersSlice(undefined, {} );
     expect(JSON.stringify(reducerReturnValue)).toBe(JSON.stringify(initialState));
   })
-
-
   it('Add the new character to the redux store', () => {
     const newState = {
       characters: [{'name': 'The Hulk'}],
@@ -23,7 +20,6 @@ describe('charactersSlice', () => {
     const reducerReturnValue = charactersSlice(undefined, { type: 'characters/setCharacters', payload: [{name: 'The Hulk'}] });
     expect(JSON.stringify(reducerReturnValue)).toBe(JSON.stringify(newState));
   })
-
 
   it('Set isloading state to true', () => {
     const newState = {

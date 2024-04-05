@@ -1,5 +1,4 @@
 type TCharacterStore = {
-  comics: TComic[];
   data: null | TCharacter;
   isLoading: boolean;
   error: null | string;
@@ -11,9 +10,16 @@ type TCharactersStore = {
   error: null | string;
 };
 
+type TCharacterComicsStore = {
+  data: null | TComic[];
+  isLoading: boolean;
+  error: null | string;
+};
+
 type TStore = {
   characters: TCharactersStore;
   character: TCharacterStore;
+  characterComics: TCharacterComicsStore;
 };
 
 type TCharacter = {
@@ -175,4 +181,5 @@ export type {
   TCharactersStore,
   TStore,
   TComic,
+  TCharacterComicsStore,
 };

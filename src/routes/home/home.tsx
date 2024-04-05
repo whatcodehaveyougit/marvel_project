@@ -20,7 +20,7 @@ const Home = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(e.target.value);
   };
-  const filteredCharacters = charactersData.filter((character: TCharacter) =>
+  const filteredCharacters = charactersData?.filter((character: TCharacter) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -43,7 +43,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {filteredCharacters.map((character) => (
+          {filteredCharacters?.map((character) => (
             <div className="character-card-container" key={character.id}>
               <CharacterCard character={character} />
             </div>

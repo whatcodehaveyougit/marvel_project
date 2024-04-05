@@ -22,7 +22,9 @@ const fetchData = async (apiRoute: string) => {
   }
 };
 
-const generateBackgroundImageUrl = (characterData: TCharacter): string => {
+const generateBackgroundImageUrl = (
+  characterData: TCharacter | null
+): string => {
   if (characterData) {
     if (characterData["thumbnail"]) {
       const backgroundImageUrlConcatenated =
@@ -35,7 +37,7 @@ const generateBackgroundImageUrl = (characterData: TCharacter): string => {
   return "";
 };
 
-function showFirstNCharacters(string: string, n: number): string {
+function showFirstNCharacters(string: string, n: number | null): string {
   if (n) {
     return string.slice(0, n) + "...";
   }

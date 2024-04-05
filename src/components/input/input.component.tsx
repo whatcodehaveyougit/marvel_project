@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomInput = ({ ...props }) => {
+const CustomInput = ({ ...props }): JSX.Element => {
   return (
     <>
       <input {...props} />

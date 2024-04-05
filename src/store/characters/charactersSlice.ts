@@ -1,41 +1,41 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { TCharactersStore } from '../../types/types';
+import { createSlice } from "@reduxjs/toolkit";
+import {
+  TCharactersStore,
+  TSetCharactersAction,
+  TSetErrorAction,
+  TSetIsLoadingAction,
+} from "../../types/types";
 
 const initialState: TCharactersStore = {
   data: [],
   isLoading: false,
-  error: null
-}
+  error: null,
+};
 
 // Create slice is a function that you pass 1 object
 export const charactersSlice = createSlice({
-  name: 'characters', // This is the namespace that is used to generate the action names
+  name: "characters", // This is the namespace that is used to generate the action names
   initialState,
   reducers: {
-    setCharacters: (state, action) => {
-      state.data = action.payload
+    setCharacters: (state, action: TSetCharactersAction) => {
+      state.data = action.payload;
     },
-    // Could be that
-    // But instead the above is shorthand for the below
-    // setCharacters: (state, action) => {
-    //   state.characters = action.payload
-    // }
-    setCharactersLoading: (state, action) => {
+    setCharactersLoading: (state, action: TSetIsLoadingAction) => {
       // State is immutable but under the hood it is generating a new object
       // But this way 'is easier to read'
-      state.isLoading = action.payload
-
+      state.isLoading = action.payload;
     },
-    setCharactersError: (state, action) => {
-      state.error = action.payload
-      state.isLoading = false
-    }
+    setCharactersError: (state, action: TSetErrorAction) => {
+      state.error = action.payload;
+      state.isLoading = false;
+    },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { setCharacters, setCharactersLoading, setCharactersError } = charactersSlice.actions
+export const { setCharacters, setCharactersLoading, setCharactersError } =
+  charactersSlice.actions;
 
-export default charactersSlice.reducer // give us back the actual reducer function which is generated from createSlice
+export default charactersSlice.reducer; // give us back the actual reducer function which is generated from createSlice
 // Which we of course pass an action to
 // And it will return the updated state

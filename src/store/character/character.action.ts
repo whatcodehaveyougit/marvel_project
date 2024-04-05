@@ -33,7 +33,7 @@ const fetchCharacterDataAsync =
   (characterid: Number) => async (dispatch: Dispatch) => {
     // Check if characters are already present in the store - performance optimisation
     const characters = store.getState().characters;
-    if (characters && characters.data.length === 0) {
+    if (characters && characters.data?.length === 0) {
       const apiRouteCharacterData = `/characters/${characterid}`;
       dispatch(setCharacterDataLoading(true));
       try {
@@ -46,7 +46,7 @@ const fetchCharacterDataAsync =
         dispatch(setCharacterDataError(error));
       }
     } else {
-      const characterData = characters.data.find(
+      const characterData = characters.data?.find(
         (character: TCharacter) => character.id === Number(characterid)
       );
       dispatch(setCharacterData(characterData));

@@ -2,7 +2,7 @@ import charactersSlice from "./characters/charactersSlice.ts";
 import characterSlice from "./character/character.slice.ts";
 import characterComicsSlice from "./characterComics/character.comics.slice.ts";
 import { configureStore } from "@reduxjs/toolkit";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 export const store = configureStore({
   reducer: {

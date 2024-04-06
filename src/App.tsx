@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import About from "./routes/about/about.tsx";
 import Character from "./routes/character/character.tsx";
-import Nav from "./components/nav/nav.component.tsx";
+import Nav from "./components/nav/nav.tsx";
 import Home from "./routes/home/home.tsx";
 import { fetchCharactersAsync } from "./store/characters/characters.action.ts";
 

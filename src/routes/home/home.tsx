@@ -1,5 +1,5 @@
 import "./home.styles.scss";
-import CharacterCard from "../../components/character-card/character-card.component.tsx";
+import CharacterCard from "../../components/character-card/character-card.tsx";
 import React, { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import {

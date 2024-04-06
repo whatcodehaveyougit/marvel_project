@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Accordion from "../../components/accordion/accordion.component.tsx";
+import Accordion from "../../components/accordion/accordion.tsx";
 import { fetchCharacterDataAsync } from "../../store/character/character.action.ts";
 import { fetchCharacterComicsAsync } from "../../store/characterComics/character.comics.action.ts";
 import { generateBackgroundImageUrl } from "../../utils/utils.ts";

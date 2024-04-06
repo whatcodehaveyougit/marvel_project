@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./character-card.styles.scss";
 import Description from "./description.tsx";
-import { TCharacter } from "../../types/types";
+import { TCharacter } from "../../types/types.ts";
 
 type CharacterCardProps = {
   character: TCharacter;

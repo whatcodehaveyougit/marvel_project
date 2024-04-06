@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="accordion-character-container border border-gray-200 rounded my-4"
+  >
+    <div
+      class="accordion-summary p-4 cursor-pointer"
+      data-testid="accordion-summary"
+    >
+      <h4
+        class="font-bold"
+      >
+        title example
+      </h4>
+    </div>
+  </div>
+</DocumentFragment>
+`;

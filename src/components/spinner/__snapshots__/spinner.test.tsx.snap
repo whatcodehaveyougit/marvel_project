@@ -4,7 +4,6 @@ exports[`Spinner renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
-    datatest-id="spinner"
   >
     <div
       class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"

@@ -1,5 +1,3 @@
-import React from "react";
-
 const About = (): JSX.Element => {
   return (
     <div className="bg-white shadow-md rounded-md p-6">

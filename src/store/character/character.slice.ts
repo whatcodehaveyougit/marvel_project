@@ -1,39 +1,63 @@
-import { createSlice } from "@reduxjs/toolkit";
-import {
-  TCharacterStore,
-  TSetErrorAction,
-  TSetIsLoadingAction,
-  TSetCharacterAction,
-} from "../../types/types";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchData } from "../../utils/utils";
+import { TCharacterStore, TCharacter } from "../../types/types";
+// import { store } from "../store.ts";
 
 const initialState: TCharacterStore = {
   data: null,
   isLoading: false,
-  error: null,
+  error: undefined,
 };
+
+export const fetchCharacterDataAsync = createAsyncThunk(
+  "character/fetchCharacterDataAsync",
+  async (characterid: Number) => {
+    // const characters = store.getState().characters;
+    // if (characters && characters.data?.length === 0) {
+    const apiRouteCharacterData = `/characters/${characterid}`;
+    try {
+      const result = await fetchData(apiRouteCharacterData);
+      return result[0];
+    } catch (error) {
+      return error;
+    }
+    // } else {
+    // const characterData = characters.data?.find(
+    //   (character: TCharacter) => character.id === Number(characterid)
+    // );
+    // return characterData;
+    // }
+  }
+);
 
 // Create slice is a function that you pass 1 object
 export const characterSlice = createSlice({
-  name: "character", // This is the namespace that is used to generate the action names
+  name: "character",
   initialState,
   reducers: {
-    setCharacterData: (state, action: TSetCharacterAction) => {
+    setCharacterData: (state, action: any) => {
       state.data = action.payload;
     },
-    setCharacterDataLoading: (state, action: TSetIsLoadingAction) => {
-      state.isLoading = action.payload;
-    },
-    setCharacterDataError: (state, action: TSetErrorAction) => {
-      state.error = action.payload;
-    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCharacterDataAsync.fulfilled, (state, action) => {
+      if (action.payload !== null) {
+        state.data = action.payload;
+      }
+      state.isLoading = false;
+    });
+    builder.addCase(fetchCharacterDataAsync.rejected, (state, action) => {
+      if (action.error !== null && action.error.message !== null) {
+        state.error = action.error.message;
+      }
+      state.isLoading = false;
+    });
+    builder.addCase(fetchCharacterDataAsync.pending, (state) => {
+      state.isLoading = true;
+    });
   },
 });
 
-// Action creators are generated for each case reducer function
-export const {
-  setCharacterData,
-  setCharacterDataLoading,
-  setCharacterDataError,
-} = characterSlice.actions;
+export const { setCharacterData } = characterSlice.actions;
 
 export default characterSlice.reducer;

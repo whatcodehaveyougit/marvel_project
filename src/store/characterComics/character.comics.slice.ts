@@ -1,37 +1,42 @@
-import { createSlice } from "@reduxjs/toolkit";
-import {
-  TCharacterComicsStore,
-  TSetComicsAction,
-  TSetErrorAction,
-  TSetIsLoadingAction,
-} from "../../types/types";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchData } from "../../utils/utils";
+import { TCharacterComicsStore } from "../../types/types";
 
 const initialState: TCharacterComicsStore = {
   data: null,
   isLoading: false,
-  error: null,
+  error: undefined,
 };
 
+export const fetchCharacterComicsAsync = createAsyncThunk(
+  "characterComics/fetchCharacterComicsAsync",
+  async (characterId: number) => {
+    const apiRouteComicsData = `/characters/${characterId}/comics`;
+    try {
+      return await fetchData(apiRouteComicsData);
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
 export const characterComicsSlice = createSlice({
-  name: "characterComics", // This is the namespace that is used to generate the action names
+  name: "characterComics",
   initialState,
-  reducers: {
-    setCharacterComics: (state, action: TSetComicsAction) => {
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchCharacterComicsAsync.fulfilled, (state, action) => {
       state.data = action.payload;
-    },
-    setCharacterComicsLoading: (state, action: TSetIsLoadingAction) => {
-      state.isLoading = action.payload;
-    },
-    setCharacterComicsError: (state, action: TSetErrorAction) => {
-      state.error = action.payload;
-    },
+      state.isLoading = false;
+    });
+    builder.addCase(fetchCharacterComicsAsync.rejected, (state, action) => {
+      state.error = action.error.message;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchCharacterComicsAsync.pending, (state) => {
+      state.isLoading = true;
+    });
   },
 });
-
-export const {
-  setCharacterComics,
-  setCharacterComicsLoading,
-  setCharacterComicsError,
-} = characterComicsSlice.actions;
 
 export default characterComicsSlice.reducer;

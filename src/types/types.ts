@@ -1,19 +1,19 @@
 type TCharacterStore = {
   data: null | TCharacter;
   isLoading: boolean;
-  error: null | string;
+  error: undefined | string;
 };
 
 type TCharactersStore = {
   data: null | TCharacter[];
   isLoading: boolean;
-  error: null | string;
+  error: undefined | string;
 };
 
 type TCharacterComicsStore = {
   data: null | TComic[];
   isLoading: boolean;
-  error: null | string;
+  error: undefined | string;
 };
 
 type TStore = {

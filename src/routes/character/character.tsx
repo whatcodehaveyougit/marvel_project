@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Accordion from "../../components/accordion/accordion.tsx";
-import { fetchCharacterDataAsync } from "../../store/character/character.action.ts";
-import { fetchCharacterComicsAsync } from "../../store/characterComics/character.comics.action.ts";
+import { fetchCharacterComicsAsync } from "../../store/characterComics/character.comics.slice.ts";
+import { fetchCharacterDataAsync } from "../../store/character/character.slice.ts";
 import { generateBackgroundImageUrl } from "../../utils/utils.ts";
 import "./character.styles.scss";
 import { setCharacterData } from "../../store/character/character.slice.ts";
-import { setCharacterComics } from "../../store/characterComics/character.comics.slice.ts";
 import {
   selectCharacterComics,
   selectIsCharacterComicsLoading,
@@ -20,8 +19,7 @@ const Character = (): JSX.Element => {
   const dispatch = useDispatch();
   const { characterid } = useParams();
   useEffect(() => {
-    dispatch(setCharacterComics([]));
-    dispatch(setCharacterData(null));
+    dispatch(setCharacterData(undefined));
     dispatch(fetchCharacterComicsAsync(characterid));
     dispatch(fetchCharacterDataAsync(characterid));
   }, [dispatch, characterid]);

@@ -2,7 +2,11 @@ import MD5 from "crypto-js/md5";
 import { TCharacter } from "../types/types";
 import axios from "axios";
 
-const getHash = (ts: string, privateKey: string, publicKey: string) => {
+const getHash = (
+  ts: string,
+  privateKey: string | undefined,
+  publicKey: string | undefined
+) => {
   return MD5(ts + privateKey + publicKey).toString();
 };
 
@@ -17,7 +21,7 @@ const fetchData = async (apiRoute: string) => {
   try {
     let response = await axios.get(url);
     return response["data"]["data"]["results"];
-  } catch (err) {
+  } catch (err: any | unknown) {
     throw Error(err);
   }
 };

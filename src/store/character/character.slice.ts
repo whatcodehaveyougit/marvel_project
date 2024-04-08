@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchData } from "../../utils/utils";
-import { TCharacterStore, TCharacter } from "../../types/types";
+import { TCharacterStore } from "../../types/types";
 // import { store } from "../store.ts";
 
 const initialState: TCharacterStore = {
@@ -11,7 +11,7 @@ const initialState: TCharacterStore = {
 
 export const fetchCharacterDataAsync = createAsyncThunk(
   "character/fetchCharacterDataAsync",
-  async (characterid: Number) => {
+  async (characterid: string | undefined) => {
     // const characters = store.getState().characters;
     // if (characters && characters.data?.length === 0) {
     const apiRouteCharacterData = `/characters/${characterid}`;

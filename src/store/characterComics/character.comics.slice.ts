@@ -10,7 +10,7 @@ const initialState: TCharacterComicsStore = {
 
 export const fetchCharacterComicsAsync = createAsyncThunk(
   "characterComics/fetchCharacterComicsAsync",
-  async (characterId: number) => {
+  async (characterId: string | undefined) => {
     const apiRouteComicsData = `/characters/${characterId}/comics`;
     try {
       return await fetchData(apiRouteComicsData);

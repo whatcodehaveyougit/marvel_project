@@ -30,6 +30,9 @@ const Character = (): JSX.Element => {
   const characterComicsLoading = useSelector(selectIsCharacterComicsLoading);
   const characterComicsError = useSelector(selectCharacterComicsError);
 
+  console.log(characterComicsLoading, "characterComicsLoading");
+  console.log(<Spinner />, "Spinner");
+
   const characterData = useSelector(selectCharacterData);
 
   return (

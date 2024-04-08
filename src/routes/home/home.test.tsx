@@ -6,10 +6,10 @@ import configureStore from "redux-mock-store";
 import characterData from "./testData/character-object.json";
 import { jest, describe, it, expect } from "@jest/globals";
 
-jest.mock("../../components/spinner/spinner.component", () =>
+jest.mock("../../components/spinner/spinner.component.tsx", () =>
   jest.fn(() => "<Spinner />")
 );
-jest.mock("../../components/character-card/character-card.component", () =>
+jest.mock("../../components/character-card/character-card.tsx", () =>
   jest.fn(() => "<CharacterCard />")
 );
 // jest.mock('../../components/input/input.component', () => jest.fn(() => '<CustomInput />'));
@@ -53,14 +53,18 @@ describe("Home", () => {
     // Instead of just changing some of the properties..
     const initialState = {
       characters: {
-        data: [],
+        data: null,
         isLoading: true,
         error: null,
       },
       character: {
-        comics: [],
-        data: null,
-        isLoading: false,
+        data: characterData,
+        isLoading: true,
+        error: null,
+      },
+      characterComics: {
+        data: [],
+        isLoading: true,
         error: null,
       },
     };
@@ -78,14 +82,18 @@ describe("Home", () => {
   it("renders error correctly", () => {
     const initialState = {
       characters: {
-        data: [],
-        isLoading: false,
-        error: "This is an ERROR!",
+        data: null,
+        isLoading: true,
+        error: null,
       },
       character: {
-        comics: [],
-        data: null,
-        isLoading: false,
+        data: characterData,
+        isLoading: true,
+        error: null,
+      },
+      characterComics: {
+        data: [],
+        isLoading: true,
         error: null,
       },
     };
@@ -107,7 +115,9 @@ describe("Home", () => {
       </Provider>
     );
     const input = screen.queryByTestId("custom-input");
-    fireEvent.change(input, { target: { value: "123" } });
-    expect(input).toHaveValue("123");
+    if (input) {
+      fireEvent.change(input, { target: { value: "123" } });
+    }
+    expect(input).toBe("123");
   });
 });

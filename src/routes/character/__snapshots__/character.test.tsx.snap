@@ -30,13 +30,7 @@ exports[`Character Accordion of comics is rendered when data has loaded in 1`] =
               </h5>
             </div>
             <div>
-              <div
-                class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
-              >
-                <div
-                  class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"
-                />
-              </div>
+              Spinner
             </div>
           </div>
         </div>
@@ -69,13 +63,7 @@ exports[`Character Accordion of comics is rendered when data has loaded in 1`] =
             </h5>
           </div>
           <div>
-            <div
-              class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
-            >
-              <div
-                class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"
-              />
-            </div>
+            Spinner
           </div>
         </div>
       </div>
@@ -162,13 +150,7 @@ exports[`Character Spinner is rendered when there is no comic book data but the 
           </h5>
         </div>
         <div>
-          <div
-            class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90"
-          >
-            <div
-              class="w-16 h-16 border-8 border-blue-500 border-t-transparent border-r-transparent rounded-full animate-spin"
-            />
-          </div>
+          Spinner
         </div>
       </div>
     </div>

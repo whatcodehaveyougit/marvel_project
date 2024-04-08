@@ -1,10 +1,9 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-// import Character from "./character";
 import * as characterData from "./testData/character-object.json";
 import * as comicData from "./testData/comic-object.json";
-import * as ReactRouterDom from "react-router-dom";
+// import * as ReactRouterDom from "react-router-dom";
 // import { useSelector } from 'react-redux';
 import * as reactRedux from "react-redux";
 import { jest, describe, it, expect } from "@jest/globals";
@@ -18,7 +17,7 @@ jest.mock("react-redux", () => ({
 }));
 
 jest.mock("react-router-dom", () => ({
-  ...(jest.requireActual("react-router-dom") as typeof ReactRouterDom),
+  // ...jest.requireActual("react-router-dom"),
   useParams: jest.fn().mockReturnValue({ characterid: 1011334 }),
 }));
 
@@ -30,6 +29,13 @@ jest.mock("react-router-dom", () => ({
 // );
 
 const mockStore = configureStore([]);
+
+jest.mock("../../components/spinner/spinner.component.tsx", () => {
+  return {
+    __esModule: true,
+    default: jest.fn(() => "Spinner"),
+  };
+});
 
 describe("Character", () => {
   // const useSelectorMock = jest.spyOn(reactRedux, 'useSelector')
@@ -47,7 +53,7 @@ describe("Character", () => {
       },
       character: {
         data: characterData,
-        isLoading: true,
+        isLoading: false,
         error: null,
       },
       characterComics: {

@@ -2,13 +2,17 @@
 
 exports[`CustomInput renders correctly 1`] = `
 <DocumentFragment>
-  <input />
+  <input
+    data-testid="custom-input"
+    type="text"
+  />
 </DocumentFragment>
 `;
 
 exports[`CustomInput renders correctly with props 1`] = `
 <DocumentFragment>
   <input
+    data-testid="custom-input"
     name="test"
     placeholder="test"
     type="text"

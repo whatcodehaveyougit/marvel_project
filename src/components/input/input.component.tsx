@@ -1,7 +1,7 @@
 const CustomInput = ({ ...props }): JSX.Element => {
   return (
     <>
-      <input {...props} />
+      <input {...props} type="text" data-testid="custom-input" />
     </>
   );
 };

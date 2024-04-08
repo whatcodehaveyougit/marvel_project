@@ -28,8 +28,6 @@ const Home = () => {
     <div className="home-container">
       <div className="search-bar-component">
         <CustomInput
-          type="text"
-          data-testid="custom-input"
           placeholder="Search Marvel Characters..."
           value={searchTerm}
           onChange={handleChange}

@@ -21,13 +21,6 @@ jest.mock("react-router-dom", () => ({
   useParams: jest.fn().mockReturnValue({ characterid: 1011334 }),
 }));
 
-// TODO - Fix this.  I need to mock the Spinner component but for some reason I cannot import it here
-// Error: Uncaught [Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got:
-// undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
-// jest.mock("../../components/spinner/spinner.component.tsx", () =>
-//   jest.fn(() => "<Spinner />")
-// );
-
 const mockStore = configureStore([]);
 
 jest.mock("../../components/spinner/spinner.component.tsx", () => {

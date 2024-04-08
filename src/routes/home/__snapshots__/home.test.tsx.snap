@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly with character data 1`] = `
+<DocumentFragment>
+  <div
+    class="home-container"
+  >
+    <div
+      class="search-bar-component"
+    >
+      CustomInput
+    </div>
+    <div>
+      Spinner
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Home renders error correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="home-container"
+  >
+    <div
+      class="search-bar-component"
+    >
+      CustomInput
+    </div>
+    <div>
+      Spinner
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Home renders spinner when data is loading 1`] = `
+<DocumentFragment>
+  <div
+    class="home-container"
+  >
+    <div
+      class="search-bar-component"
+    >
+      CustomInput
+    </div>
+    <div>
+      Spinner
+    </div>
+  </div>
+</DocumentFragment>
+`;

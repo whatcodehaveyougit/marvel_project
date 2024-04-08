@@ -13,7 +13,7 @@ import {
   selectCharacterComicsError,
 } from "../../store/characterComics/character.comics.selector.ts";
 import { selectCharacterData } from "../../store/character/character.selector.ts";
-// import Spinner from "../../components/spinner/spinner.component.tsx";
+import Spinner from "../../components/spinner/spinner.component.tsx";
 
 type AppDispatch = typeof import("../../store/store.ts").store.dispatch;
 
@@ -50,7 +50,7 @@ const Character = (): JSX.Element => {
             </h5>
           </div>
           <div>
-            {/* {characterComicsLoading === true && <Spinner />} */}
+            {characterComicsLoading === true && <Spinner />}
             {characterComicsArr &&
               characterComicsLoading !== true &&
               characterComicsArr.map((comic) => (

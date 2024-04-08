@@ -22,11 +22,12 @@ jest.mock("react-router-dom", () => ({
   useParams: jest.fn().mockReturnValue({ characterid: 1011334 }),
 }));
 
+// TODO - Fix this.  I need to mock the Spinner component but for some reason I cannot import it here
+// Error: Uncaught [Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got:
+// undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
 // jest.mock("../../components/spinner/spinner.component.tsx", () =>
-//   jest.fn(() => "Spinner")
+//   jest.fn(() => "<Spinner />")
 // );
-
-console.log(characterData);
 
 const mockStore = configureStore([]);
 
@@ -50,7 +51,7 @@ describe("Character", () => {
         error: null,
       },
       characterComics: {
-        data: [comicData],
+        data: [],
         isLoading: true,
         error: null,
       },
@@ -67,27 +68,33 @@ describe("Character", () => {
     ).asFragment();
     expect(view).toMatchSnapshot();
   });
-  // it("Accordion of comics is rendered when data has loaded in", () => {
-  //   const initialState1 = {
-  //     characters: [],
-  //     isLoading: false,
-  //     error: null,
-  //     character: {
-  //       comics: [comicData],
-  //       data: { name: "THe hulk" },
-  //       isLoading: false,
-  //       error: null,
-  //     },
-  //   };
-  //   const store = mockStore(initialState1);
-  //   jest
-  //     .spyOn(reactRedux, "useSelector")
-  //     .mockImplementation((callback) => callback(store.getState()));
-  //   const view = render(
-  //     <Provider store={store}>
-  //       <Character />
-  //     </Provider>
-  //   );
-  //   expect(view).toMatchSnapshot();
-  // });
+  it("Accordion of comics is rendered when data has loaded in", () => {
+    const initialState1 = {
+      characters: {
+        data: null,
+        isLoading: true,
+        error: null,
+      },
+      character: {
+        data: characterData,
+        isLoading: true,
+        error: null,
+      },
+      characterComics: {
+        data: [comicData],
+        isLoading: true,
+        error: null,
+      },
+    };
+    const store = mockStore(initialState1);
+    jest
+      .spyOn(reactRedux, "useSelector")
+      .mockImplementation((callback) => callback(store.getState()));
+    const view = render(
+      <Provider store={store}>
+        <Character />
+      </Provider>
+    );
+    expect(view).toMatchSnapshot();
+  });
 });

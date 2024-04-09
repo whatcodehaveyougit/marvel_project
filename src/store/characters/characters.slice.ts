@@ -41,10 +41,6 @@ export const charactersSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { setCharacters, setCharactersLoading, setCharactersError } =
-  charactersSlice.actions;
-
 export default charactersSlice.reducer; // give us back the actual reducer function which is generated from createSlice
 // Which we of course pass an action to
 // And it will return the updated state

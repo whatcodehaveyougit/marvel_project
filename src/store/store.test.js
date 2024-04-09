@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import charactersReducer from './characters/charactersSlice';
 import characterReducer from './character/characterSlice';
+import characterComicsReducer from './characterComics/characterComicsSlice';
 import logger from 'redux-logger';
 
 describe('Redux store configuration', () => {
@@ -11,6 +12,7 @@ describe('Redux store configuration', () => {
       reducer: {
         characters: charactersReducer,
         character: characterReducer,
+        characterComics: characterComicsReducer,
       },
       middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     });

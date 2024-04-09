@@ -8,7 +8,7 @@ import {
   selectCharactersError,
 } from "../../store/characters/characters.selector.ts";
 import CustomInput from "../../components/input/input.component.tsx";
-import Spinner from "../../components/spinner/spinner.component.tsx";
+import Spinner from "../../components/spinner/spinner.tsx";
 import { TCharacter } from "../../types/types.tsx";
 
 const Home = () => {

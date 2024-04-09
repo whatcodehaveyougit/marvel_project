@@ -34,7 +34,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "update": "jest -- --coverage --updateSnapshot",
+    "testU": "jest -- --coverage --updateSnapshot",
     "coverage": "jest --coverage",
     "eject": "react-scripts eject"
   },

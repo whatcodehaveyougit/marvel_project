@@ -24,10 +24,17 @@ jest.mock("react-router-dom", () => ({
 
 const mockStore = configureStore([]);
 
-jest.mock("../../components/spinner/spinner.component.tsx", () => {
+jest.mock("../../components/spinner/spinner.tsx", () => {
   return {
     __esModule: true,
-    default: jest.fn(() => "Spinner"),
+    default: jest.fn(() => "<Spinner />"),
+  };
+});
+
+jest.mock("../../components/accordion/accordion.tsx", () => {
+  return {
+    __esModule: true,
+    default: jest.fn(() => "<Accordion />"),
   };
 });
 
@@ -82,7 +89,7 @@ describe("Character", () => {
       },
       characterComics: {
         data: [comicData],
-        isLoading: true,
+        isLoading: false,
         error: undefined,
       },
     };

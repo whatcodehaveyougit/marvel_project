@@ -1,5 +1,5 @@
 import { render, RenderResult } from "@testing-library/react";
-import Spinner from "./spinner.component";
+import Spinner from "./spinner";
 import { describe, test, expect } from "@jest/globals";
 
 describe("Spinner", () => {

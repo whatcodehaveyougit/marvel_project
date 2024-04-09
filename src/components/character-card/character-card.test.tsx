@@ -3,7 +3,14 @@ import { render, screen } from "@testing-library/react";
 import CharacterCard from "./character-card";
 import * as character from "../../testData/character-object.json";
 import { BrowserRouter } from "react-router-dom";
-import { describe, it, expect } from "@jest/globals";
+import { describe, it, expect, jest } from "@jest/globals";
+
+jest.mock("./description.tsx", () => {
+  return {
+    __esModule: true,
+    default: jest.fn(() => "<Description />"),
+  };
+});
 
 describe("CharacterCard", () => {
   it("renders correctly", () => {

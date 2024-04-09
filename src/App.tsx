@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import { useAppDispatch } from "./store/hooks.ts";
 import About from "./routes/about/about.tsx";
 import Character from "./routes/character/character.tsx";
 import Nav from "./components/nav/nav.tsx";
 import Home from "./routes/home/home.tsx";
 import { fetchCharactersAsync } from "./store/characters/characters.slice.ts";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./store/store.ts";
 
 function App() {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchCharactersAsync());
   }, [dispatch]);

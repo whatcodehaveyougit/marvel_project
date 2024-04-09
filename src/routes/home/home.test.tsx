@@ -13,7 +13,7 @@ jest.mock("../../components/character-card/character-card.tsx", () => {
     default: jest.fn(() => "CharacterComponent"),
   };
 });
-jest.mock("../../components/spinner/spinner.component.tsx", () => {
+jest.mock("../../components/spinner/spinner.tsx", () => {
   return {
     __esModule: true,
     default: jest.fn(() => "Spinner"),

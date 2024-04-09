@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Description renders correctly with another character and useRef being mocked 1`] = `
+<DocumentFragment>
+  <div
+    class="container-1011334 max-lines"
+  >
+    <div>
+      <p
+        class="text-gray-500"
+      >
+        No superpowers ;(
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

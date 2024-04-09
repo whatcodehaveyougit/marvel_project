@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import Accordion from "../../components/accordion/accordion.tsx";
+import { useSelector, useDispatch } from "react-redux";
 import { fetchCharacterComicsAsync } from "../../store/characterComics/character.comics.slice.ts";
 import { fetchCharacterDataAsync } from "../../store/character/character.slice.ts";
 import { generateBackgroundImageUrl } from "../../utils/utils.ts";
@@ -13,13 +12,15 @@ import {
   selectCharacterComicsError,
 } from "../../store/characterComics/character.comics.selector.ts";
 import { selectCharacterData } from "../../store/character/character.selector.ts";
-import Spinner from "../../components/spinner/spinner.component.tsx";
-import { useAppDispatch } from "../../store/hooks.ts";
+import Spinner from "../../components/spinner/spinner.tsx";
+import Accordion from "../../components/accordion/accordion.tsx";
 
 type AppDispatch = typeof import("../../store/store.ts").store.dispatch;
 
 const Character = (): JSX.Element => {
-  const dispatch = useAppDispatch<AppDispatch>();
+  // TODO: Unable to use useAppDispatch here because the unit tests were failing as result
+  // Was not ab eot mock useAppDispatch effectively
+  const dispatch = useDispatch<AppDispatch>();
   const { characterid } = useParams();
   useEffect(() => {
     dispatch(setCharacterData(null));

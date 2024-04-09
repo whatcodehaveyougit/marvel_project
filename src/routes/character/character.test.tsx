@@ -8,7 +8,7 @@ import * as comicData from "../../testData/comic-object.json";
 import * as reactRedux from "react-redux";
 import { jest, describe, it, expect } from "@jest/globals";
 import Character from "./character";
-import { RootState } from "../../types/types";
+import { RootState } from "../../store/store";
 
 jest.mock("react-redux", () => ({
   // ...jest.requireActual("react-redux"),

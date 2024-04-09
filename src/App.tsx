@@ -4,7 +4,7 @@ import About from "./routes/about/about.tsx";
 import Character from "./routes/character/character.tsx";
 import Nav from "./components/nav/nav.tsx";
 import Home from "./routes/home/home.tsx";
-import { fetchCharactersAsync } from "./store/characters/characters.action.ts";
+import { fetchCharactersAsync } from "./store/characters/characters.slice.ts";
 import { useEffect } from "react";
 
 function App() {

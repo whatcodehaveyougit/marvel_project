@@ -17,7 +17,7 @@ jest.mock('./store/characters/characters.action', () => ({
   })
 }));
 
-jest.mock('./components/nav/nav.component', () => () => <div data-testid="mock-nav" />);
+jest.mock('./components/nav/nav', () => () => <div data-testid="mock-nav" />);
 jest.mock('./routes/home/home', () => () => <div data-testid="mock-home" />);
 jest.mock('./routes/about/about', () => () => <div data-testid="mock-about" />);
 jest.mock('./routes/character/character', () => () => <div data-testid="mock-character" />);

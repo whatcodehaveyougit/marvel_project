@@ -1,4 +1,4 @@
-import charactersSlice from "./characters/charactersSlice.ts";
+import charactersSlice from "./characters/characters.slice.ts";
 import characterSlice from "./character/character.slice.ts";
 import characterComicsSlice from "./characterComics/character.comics.slice.ts";
 import { configureStore } from "@reduxjs/toolkit";

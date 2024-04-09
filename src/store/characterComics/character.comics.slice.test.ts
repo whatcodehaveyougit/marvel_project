@@ -1,7 +1,14 @@
 import { fetchCharacterComicsAsync } from "./character.comics.slice";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../../utils/utils";
-import { jest, describe, beforeEach, it } from "@jest/globals";
+import {
+  jest,
+  describe,
+  beforeEach,
+  it,
+  afterEach,
+  expect,
+} from "@jest/globals";
 
 jest.mock("react-redux", () => ({
   useDispatch: jest.fn(),

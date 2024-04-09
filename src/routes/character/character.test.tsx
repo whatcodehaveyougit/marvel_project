@@ -1,13 +1,14 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-import * as characterData from "./testData/character-object.json";
-import * as comicData from "./testData/comic-object.json";
+import * as characterData from "../../testData/character-object.json";
+import * as comicData from "../../testData/comic-object.json";
 // import * as ReactRouterDom from "react-router-dom";
 // import { useSelector } from 'react-redux';
 import * as reactRedux from "react-redux";
 import { jest, describe, it, expect } from "@jest/globals";
 import Character from "./character";
+import { RootState } from "../../types/types";
 
 jest.mock("react-redux", () => ({
   // ...jest.requireActual("react-redux"),
@@ -38,28 +39,28 @@ describe("Character", () => {
   //   ReactRouterDom.useParams.mockReturnValue({ characterid: 1011334 });
   // });
   it("Spinner is rendered when there is no comic book data but the data is loading", () => {
-    const initialState = {
+    const initialState: RootState = {
       characters: {
         data: null,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       character: {
         data: characterData,
         isLoading: false,
-        error: null,
+        error: undefined,
       },
       characterComics: {
         data: [],
         isLoading: true,
-        error: null,
+        error: undefined,
       },
     };
     const store = mockStore(initialState);
     jest
       .spyOn(reactRedux, "useSelector")
       .mockImplementation((callback) => callback(store.getState()));
-    console.log(store.getState());
+    // console.log(store.getState());
     const view = render(
       <Provider store={store}>
         <Character />
@@ -68,21 +69,21 @@ describe("Character", () => {
     expect(view).toMatchSnapshot();
   });
   it("Accordion of comics is rendered when data has loaded in", () => {
-    const initialState1 = {
+    const initialState1: RootState = {
       characters: {
         data: null,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       character: {
         data: characterData,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       characterComics: {
         data: [comicData],
         isLoading: true,
-        error: null,
+        error: undefined,
       },
     };
     const store = mockStore(initialState1);

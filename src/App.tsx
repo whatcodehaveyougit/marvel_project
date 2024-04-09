@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "./store/hooks.ts";
 import About from "./routes/about/about.tsx";
 import Character from "./routes/character/character.tsx";
 import Nav from "./components/nav/nav.tsx";
 import Home from "./routes/home/home.tsx";
 import { fetchCharactersAsync } from "./store/characters/characters.action.ts";
+import { useEffect } from "react";
 
 function App() {
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchCharactersAsync());
   }, [dispatch]);

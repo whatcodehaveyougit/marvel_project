@@ -1,10 +1,10 @@
 import { createSelector } from "reselect";
-import { TStore } from "../../types/types";
+import { RootState } from "../../store/store.ts";
 
 // This is an input selecter - Gives us the parameters we need to determine what our output should be
 // Create a selector to give us the slice of the reducer that we NEED
 // This is a selector function which SOMEHOW gets the entire redux state
-const selectCharacterReducer = (state: TStore) => state.character;
+const selectCharacterReducer = (state: RootState) => state.character;
 
 const selectCharacterComics = createSelector(
   [selectCharacterReducer],

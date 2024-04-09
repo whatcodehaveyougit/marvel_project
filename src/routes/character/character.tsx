@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Accordion from "../../components/accordion/accordion.tsx";
 import { fetchCharacterComicsAsync } from "../../store/characterComics/character.comics.slice.ts";
 import { fetchCharacterDataAsync } from "../../store/character/character.slice.ts";
@@ -14,14 +14,15 @@ import {
 } from "../../store/characterComics/character.comics.selector.ts";
 import { selectCharacterData } from "../../store/character/character.selector.ts";
 import Spinner from "../../components/spinner/spinner.component.tsx";
+import { useAppDispatch } from "../../store/hooks.ts";
 
 type AppDispatch = typeof import("../../store/store.ts").store.dispatch;
 
 const Character = (): JSX.Element => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch<AppDispatch>();
   const { characterid } = useParams();
   useEffect(() => {
-    dispatch(setCharacterData(undefined));
+    dispatch(setCharacterData(null));
     dispatch(fetchCharacterComicsAsync(characterid));
     dispatch(fetchCharacterDataAsync(characterid));
   }, [dispatch, characterid]);

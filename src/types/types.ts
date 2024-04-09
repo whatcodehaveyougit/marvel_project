@@ -16,12 +16,6 @@ type TCharacterComicsStore = {
   error: undefined | string;
 };
 
-type TStore = {
-  characters: TCharactersStore;
-  character: TCharacterStore;
-  characterComics: TCharacterComicsStore;
-};
-
 type TCharacter = {
   id: number;
   name: string;
@@ -179,7 +173,6 @@ export type {
   TSetCharactersAction,
   TCharacterStore,
   TCharactersStore,
-  TStore,
   TComic,
   TCharacterComicsStore,
 };

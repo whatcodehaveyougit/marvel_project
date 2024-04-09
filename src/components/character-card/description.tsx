@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { showFirstNCharacters } from "../../utils/utils.ts";
 import { TCharacter } from "../../types/types.ts";
 

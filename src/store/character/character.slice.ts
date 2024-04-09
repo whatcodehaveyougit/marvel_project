@@ -1,13 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchData } from "../../utils/utils";
-import { TCharacterStore } from "../../types/types";
+import { TCharacter, TCharacterStore } from "../../types/types";
 // import { store } from "../store.ts";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: TCharacterStore = {
+const initialState = {
   data: null,
   isLoading: false,
   error: undefined,
-};
+} satisfies TCharacterStore as TCharacterStore;
 
 export const fetchCharacterDataAsync = createAsyncThunk(
   "character/fetchCharacterDataAsync",
@@ -35,7 +36,7 @@ export const characterSlice = createSlice({
   name: "character",
   initialState,
   reducers: {
-    setCharacterData: (state, action: any) => {
+    setCharacterData: (state, action: PayloadAction<TCharacter | null>) => {
       state.data = action.payload;
     },
   },

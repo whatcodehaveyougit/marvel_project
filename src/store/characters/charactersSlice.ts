@@ -9,7 +9,7 @@ import {
 const initialState: TCharactersStore = {
   data: null,
   isLoading: false,
-  error: null,
+  error: undefined,
 };
 
 // Create slice is a function that you pass 1 object

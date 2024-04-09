@@ -5,6 +5,7 @@ import Home from "./home";
 import configureStore from "redux-mock-store";
 import * as characterData from "./testData/character-object.json";
 import { jest, describe, it, expect } from "@jest/globals";
+import { RootState } from "../../store/store.ts";
 
 jest.mock("../../components/character-card/character-card.tsx", () => {
   return {
@@ -35,21 +36,21 @@ jest.mock("react-redux", () => ({
 
 describe("Home", () => {
   it("renders correctly with character data", () => {
-    const initialState = {
+    const initialState: RootState = {
       characters: {
         data: [characterData],
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       character: {
         data: null,
         isLoading: false,
-        error: null,
+        error: undefined,
       },
       characterComics: {
         data: [],
         isLoading: true,
-        error: null,
+        error: undefined,
       },
     };
     const store = mockStore(initialState);
@@ -67,21 +68,21 @@ describe("Home", () => {
   it("renders spinner when data is loading", () => {
     // Optimization: Why do I have to create new state object each time here?
     // Instead of just changing some of the properties..
-    const initialState = {
+    const initialState: RootState = {
       characters: {
         data: null,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       character: {
         data: null,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       characterComics: {
         data: [],
         isLoading: true,
-        error: null,
+        error: undefined,
       },
     };
     const store = mockStore(initialState);
@@ -96,21 +97,21 @@ describe("Home", () => {
     expect(tree).toMatchSnapshot();
   });
   it("renders error correctly", () => {
-    const initialState = {
+    const initialState: RootState = {
       characters: {
         data: null,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       character: {
         data: characterData,
         isLoading: true,
-        error: null,
+        error: undefined,
       },
       characterComics: {
         data: [],
         isLoading: true,
-        error: null,
+        error: undefined,
       },
     };
     const store = mockStore(initialState);

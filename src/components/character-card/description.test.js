@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
-import character2 from './testData/character2.json';
-import React, { useRef } from 'react';
+import * as character from '../../testData/character-object.json';
 import Description from './description';
 
 
@@ -22,7 +21,7 @@ describe('Description', () => {
     });
 
     const { asFragment } = render(
-        <Description character={character2} />
+        <Description character={character} />
     );
 
     expect(asFragment()).toMatchSnapshot();

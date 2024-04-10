@@ -8,7 +8,7 @@ import { describe, it, expect, jest } from "@jest/globals";
 jest.mock("./description.tsx", () => {
   return {
     __esModule: true,
-    default: jest.fn(() => "<Description />"),
+    default: jest.fn(() => <div>Description</div>),
   };
 });
 

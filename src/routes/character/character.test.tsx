@@ -27,14 +27,14 @@ const mockStore = configureStore([]);
 jest.mock("../../components/spinner/spinner.tsx", () => {
   return {
     __esModule: true,
-    default: jest.fn(() => "<Spinner />"),
+    default: jest.fn(() => <div>Spinner</div>),
   };
 });
 
 jest.mock("../../components/accordion/accordion.tsx", () => {
   return {
     __esModule: true,
-    default: jest.fn(() => "<Accordion />"),
+    default: jest.fn(() => <div>Accordion</div>),
   };
 });
 

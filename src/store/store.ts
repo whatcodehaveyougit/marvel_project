@@ -4,11 +4,15 @@ import characterComicsSlice from "./characterComics/character.comics.slice.ts";
 import { configureStore } from "@reduxjs/toolkit";
 // import logger from "redux-logger";
 
+export const rootReducer = {
+  characters: charactersSlice,
+  character: characterSlice,
+  characterComics: characterComicsSlice,
+};
+
 export const store = configureStore({
   reducer: {
-    characters: charactersSlice,
-    character: characterSlice,
-    characterComics: characterComicsSlice,
+    ...rootReducer,
   },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

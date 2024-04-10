@@ -1,55 +1,47 @@
-// import { characterSlice, fetchCharacterDataAsync } from "./character.slice";
-// import { describe, it, expect, jest } from "@jest/globals";
-// import * as characterData from "../../testData/character-object.json";
-// import configureStore from "redux-mock-store";
-// import thunk from "redux-thunk";
-// // import { AnyAction, Dispatch, Middleware } from "@reduxjs/toolkit";
+import { fetchCharacterDataAsync, setCharacterData } from "./character.slice";
+import { describe, it, expect, jest } from "@jest/globals";
+import * as characterData from "../../testData/character-object.json";
+import { configureStore } from "@reduxjs/toolkit";
+import { rootReducer } from "../../store/store";
 
-// // const middlewares: Middleware<{}, any, Dispatch<AnyAction>>[] = [
-// //   thunk as unknown as Middleware<{}, any, Dispatch<AnyAction>,
-// // ];
+jest.mock("../../utils/utils", () => ({
+  fetchData: jest.fn(() => Promise.resolve([characterData])), // Update mock to return the correct data shape
+}));
 
-// jest.mock("../../utils/utils", () => ({
-//   fetchData: jest.fn(() =>
-//     Promise.resolve({ data: { results: characterData } })
-//   ),
-// }));
+const initialState = {
+  characters: {
+    data: null,
+    isLoading: false,
+    error: undefined,
+  },
+  character: {
+    data: null,
+    isLoading: false,
+    error: undefined,
+  },
+  characterComics: {
+    data: [],
+    isLoading: false,
+    error: undefined,
+  },
+};
 
-// const mockStore = configureStore([thunk as any]);
+describe("characterSlice reducer", () => {
+  it("should handle setCharacterData", () => {
+    const store = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
+    store.dispatch(setCharacterData(characterData));
+    expect(store.getState().character.data).toEqual(characterData);
+  });
 
-// describe("characterSlice reducer", () => {
-//   // beforeEach(() => {
-//   //   store = mockStore({
-//   //     characters: {
-//   //       data: null,
-//   //       isLoading: false,
-//   //       error: undefined,
-//   //     },
-//   //   });
-//   // });
-
-//   it("should handle setCharacterData", () => {
-//     const characterInitialState = {
-//       data: null,
-//       isLoading: false,
-//       error: undefined,
-//     };
-//     const action = characterSlice.actions.setCharacterData(characterData);
-//     const newState = characterSlice.reducer(characterInitialState, action);
-//     expect(newState.data).toEqual(characterData);
-//   });
-
-//   it("should handle fetchCharacterDataAsync", async () => {
-//     const characterInitialState = {
-//       data: null,
-//       isLoading: false,
-//       error: undefined,
-//     };
-//     const store = mockStore(characterInitialState);
-//     await store.dispatch(fetchCharacterDataAsync("1011334") as any);
-//     const actions = store.getActions();
-//     expect(actions[0].type).toEqual(fetchCharacterDataAsync.pending.type);
-//     expect(actions[1].type).toEqual(fetchCharacterDataAsync.fulfilled.type);
-//     expect(actions[1].payload).toEqual(characterData);
-//   });
-// });
+  it("should handle fetchCharacterDataAsync", async () => {
+    const store2 = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
+    await store2.dispatch(fetchCharacterDataAsync("1011334"));
+    expect(store2.getState().character.data).toEqual(characterData);
+  });
+});

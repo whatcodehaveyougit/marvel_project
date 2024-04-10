@@ -48,4 +48,15 @@ function showFirstNCharacters(string: string, n: number | null): string {
   return string;
 }
 
-export { fetchData, generateBackgroundImageUrl, showFirstNCharacters };
+// https://redux-toolkit.js.org/api/createAsyncThunk#handling-thunk-errors
+// Added this as per the thunk docs
+function rejectWithValue(error: unknown): any {
+  throw new Error("Error: " + error);
+}
+
+export {
+  fetchData,
+  generateBackgroundImageUrl,
+  showFirstNCharacters,
+  rejectWithValue,
+};

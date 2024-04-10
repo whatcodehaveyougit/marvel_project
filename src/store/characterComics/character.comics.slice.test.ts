@@ -1,142 +1,59 @@
-// import { fetchCharacterComicsAsync } from "./character.comics.slice";
-// import { useDispatch } from "react-redux";
-// import { fetchData } from "../../utils/utils";
-// import {
-//   jest,
-//   describe,
-//   beforeEach,
-//   it,
-//   afterEach,
-//   expect,
-// } from "@jest/globals";
+import { fetchCharacterComicsAsync } from "./character.comics.slice";
+import * as characterComicData from "../../testData/comic-object.json";
+import { jest, describe, it, expect } from "@jest/globals";
+import { configureStore } from "@reduxjs/toolkit";
+import { rootReducer } from "../../store/store";
+const { fetchData } = require("../../utils/utils");
+// Habving this as require means that I can call mockImplemntation() further down
+// And see change what the mock is returning so that I can test the error case
 
-// jest.mock("react-redux", () => ({
-//   useDispatch: jest.fn(),
-// }));
+jest.mock("../../utils/utils", () => ({
+  fetchData: jest.fn(() => Promise.resolve(characterComicData)), // Update mock to return the correct data shape
+}));
 
-// jest.mock("../../utils/utils", () => ({
-//   fetchData: jest.fn(),
-// }));
+const initialState = {
+  characters: {
+    data: null,
+    isLoading: false,
+    error: undefined,
+  },
+  character: {
+    data: null,
+    isLoading: false,
+    error: undefined,
+  },
+  characterComics: {
+    data: [],
+    isLoading: false,
+    error: undefined,
+  },
+};
 
-// describe("Character actions", () => {
-//   let dispatchMock;
+describe("fetchCharacterComicsAsync", () => {
+  it("dispatches loading and success actions on successful API call", async () => {
+    const characterid = "123";
+    const store = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
 
-//   beforeEach(() => {
-//     dispatchMock = jest.fn();
-//     useDispatch.mockReturnValue(dispatchMock);
-//   });
+    await store.dispatch(fetchCharacterComicsAsync(characterid));
+    expect(store.getState().characterComics.data).toEqual(characterComicData);
+  });
+});
 
-//   afterEach(() => {
-//     jest.clearAllMocks();
-//   });
-
-//   describe("fetchCharacterComicsAsync", () => {
-//     it("dispatches loading and success actions on successful API call", async () => {
-//       const characterid = 123;
-//       const mockedComicsData = [
-//         { id: 1, title: "Comic 1" },
-//         { id: 2, title: "Comic 2" },
-//       ];
-//       fetchData.mockResolvedValue({ data: { results: mockedComicsData } });
-
-//       await fetchCharacterComicsAsync(characterid)(dispatchMock);
-//       expect(dispatchMock).toHaveBeenCalledWith({
-//         type: "characters/setCharacterComicsLoading",
-//         payload: true,
-//       });
-//       expect(fetchData).toHaveBeenCalledWith(
-//         `/characters/${characterid}/comics`
-//       );
-//       expect(dispatchMock).toHaveBeenCalledWith({
-//         type: "characters/setCharacterComics",
-//         payload: mockedComicsData,
-//       });
-//       expect(dispatchMock).toHaveBeenCalledWith({
-//         type: "characters/setCharacterComicsLoading",
-//         payload: false,
-//       });
-//     });
-
-//     it("dispatches loading and error actions on failed API call", async () => {
-//       const characterid = 123;
-//       const mockedError = new Error("API Error");
-//       fetchData.mockRejectedValue(mockedError);
-
-//       await fetchCharacterComicsAsync(characterid)(dispatchMock);
-
-//       expect(dispatchMock).toHaveBeenCalledWith({
-//         type: "characters/setCharacterComicsLoading",
-//         payload: true,
-//       });
-//       expect(fetchData).toHaveBeenCalledWith(
-//         `/characters/${characterid}/comics`
-//       );
-//       expect(dispatchMock).toHaveBeenCalledWith({
-//         type: "characters/setCharacterComicsError",
-//         payload: mockedError,
-//       });
-//       expect(dispatchMock).toHaveBeenCalledWith({
-//         type: "characters/setCharacterComicsLoading",
-//         payload: false,
-//       });
-//     });
-//   });
-// });
-
-// // import { characterSlice } from "./character.slice";
-// // import { describe, beforeEach, it, expect } from "@jest/globals";
-// // const { setCharacterData } = characterSlice.actions;
-
-// // describe("characterSlice reducer", () => {
-// //   let initialState;
-
-// //   beforeEach(() => {
-// //     initialState = {
-// //       comics: [],
-// //       data: null,
-// //       isLoading: false,
-// //       error: null,
-// //     };
-// //   });
-
-// //   it("should handle setCharacterComics", () => {
-// //     const action = setCharacterComics([{ id: 1, title: "Comic 1" }]);
-// //     const newState = characterSlice.reducer(initialState, action);
-// //     expect(newState.comics).toEqual([{ id: 1, title: "Comic 1" }]);
-// //   });
-
-// //   it("should handle setCharacterComicsLoading", () => {
-// //     const action = setCharacterComicsLoading(true);
-// //     const newState = characterSlice.reducer(initialState, action);
-// //     expect(newState.isLoading).toBe(true);
-// //   });
-
-// //   it("should handle setCharacterComicsError", () => {
-// //     const error = "An error occurred";
-// //     const action = setCharacterComicsError(error);
-// //     const newState = characterSlice.reducer(initialState, action);
-// //     expect(newState.error).toBe(error);
-// //     expect(newState.isLoading).toBe(false);
-// //   });
-
-// //   it("should handle setCharacterData", () => {
-// //     const characterData = { id: 1, name: "Character 1" };
-// //     const action = setCharacterData(characterData);
-// //     const newState = characterSlice.reducer(initialState, action);
-// //     expect(newState.data).toEqual(characterData);
-// //   });
-
-// //   it("should handle setCharacterDataLoading", () => {
-// //     const action = setCharacterDataLoading(true);
-// //     const newState = characterSlice.reducer(initialState, action);
-// //     expect(newState.isLoading).toBe(true);
-// //   });
-
-// //   it("should handle setCharacterDataError", () => {
-// //     const error = "An error occurred";
-// //     const action = setCharacterDataError(error);
-// //     const newState = characterSlice.reducer(initialState, action);
-// //     expect(newState.error).toBe(error);
-// //     expect(newState.isLoading).toBe(false);
-// //   });
-// // });
+describe("fetchCharacterComicsAsyncError", () => {
+  it("dispatches loading and error actions on failed API call", async () => {
+    const store2 = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
+    fetchData.mockImplementation(() => {
+      throw Error("Bad things have happened");
+    });
+    await store2.dispatch(fetchCharacterComicsAsync("123"));
+    expect(store2.getState().characterComics.error).toEqual(
+      "(0 , utils_1.rejectWithValue) is not a function"
+    );
+  });
+});

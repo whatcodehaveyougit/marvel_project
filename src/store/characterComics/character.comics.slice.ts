@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchData } from "../../utils/utils";
+import { fetchData, rejectWithValue } from "../../utils/utils";
 import { TCharacterComicsStore } from "../../types/types";
 
 const initialState: TCharacterComicsStore = {
@@ -15,7 +15,7 @@ export const fetchCharacterComicsAsync = createAsyncThunk(
     try {
       return await fetchData(apiRouteComicsData);
     } catch (error) {
-      return error;
+      return rejectWithValue(error);
     }
   }
 );
@@ -30,6 +30,7 @@ export const characterComicsSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fetchCharacterComicsAsync.rejected, (state, action) => {
+      console.log("hitting the error");
       state.error = action.error.message;
       state.isLoading = false;
     });

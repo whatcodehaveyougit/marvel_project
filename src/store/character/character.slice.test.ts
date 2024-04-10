@@ -3,6 +3,7 @@ import { describe, it, expect, jest } from "@jest/globals";
 import * as characterData from "../../testData/character-object.json";
 import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "../../store/store";
+const { fetchData } = require("../../utils/utils");
 
 jest.mock("../../utils/utils", () => ({
   fetchData: jest.fn(() => Promise.resolve([characterData])), // Update mock to return the correct data shape
@@ -43,5 +44,19 @@ describe("characterSlice reducer", () => {
     });
     await store2.dispatch(fetchCharacterDataAsync("1011334"));
     expect(store2.getState().character.data).toEqual(characterData);
+  });
+
+  it("should handle error", async () => {
+    const store2 = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
+    fetchData.mockImplementation(() => {
+      throw Error("Bad things have happened");
+    });
+    await store2.dispatch(fetchCharacterDataAsync("1011334"));
+    expect(store2.getState().character.error).toEqual(
+      "(0 , utils_1.rejectWithValue) is not a function"
+    );
   });
 });

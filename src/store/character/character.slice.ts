@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchData } from "../../utils/utils";
+import { fetchData, rejectWithValue } from "../../utils/utils";
 import { TCharacter, TCharacterStore } from "../../types/types";
 // import { store } from "../store.ts";
 import type { PayloadAction } from "@reduxjs/toolkit";
@@ -20,7 +20,7 @@ export const fetchCharacterDataAsync = createAsyncThunk(
       const result = await fetchData(apiRouteCharacterData);
       return result[0];
     } catch (error) {
-      return error;
+      return rejectWithValue(error);
     }
     // } else {
     // const characterData = characters.data?.find(

@@ -1,57 +1,57 @@
-// import { TCharactersStore } from "../../types/types";
-// import charactersSlice from "./characters.slice";
+import { fetchCharactersAsync } from "./characters.slice";
+import { describe, it, expect, jest } from "@jest/globals";
+import { configureStore } from "@reduxjs/toolkit";
+import { rootReducer } from "../../store/store";
+import * as characterData from "../../testData/character-object.json";
+const { fetchData } = require("../../utils/utils");
 
-// import { describe, it, expect } from "@jest/globals";
+jest.mock("../../utils/utils", () => ({
+  fetchData: jest.fn(() => Promise.resolve([characterData])), // Update mock to return the correct data shape
+}));
 
-// const initialState: TCharactersStore = {
-//   data: [],
-//   isLoading: false,
-//   error: undefined,
-// };
+const initialState = {
+  characters: {
+    data: null,
+    isLoading: false,
+    error: undefined,
+  },
+  character: {
+    data: null,
+    isLoading: false,
+    error: undefined,
+  },
+  characterComics: {
+    data: [],
+    isLoading: false,
+    error: undefined,
+  },
+};
 
-// describe("charactersSlice", () => {
-//   it("Returns initial redux store state as no state or action is passed in", () => {
-//     const reducerReturnValue = charactersSlice(undefined, {});
-//     expect(JSON.stringify(reducerReturnValue)).toBe(
-//       JSON.stringify(initialState)
-//     );
-//   });
-//   it("Add the new character to the redux store", () => {
-//     const newState = {
-//       characters: [{ name: "The Hulk" }],
-//       isLoading: false,
-//       error: null,
-//     };
-//     const reducerReturnValue = charactersSlice(undefined, {
-//       type: "characters/setCharacters",
-//       payload: [{ name: "The Hulk" }],
-//     });
-//     expect(JSON.stringify(reducerReturnValue)).toBe(JSON.stringify(newState));
-//   });
+describe("charactersSlice", () => {
+  it("Add the new character to the redux store", async () => {
+    const store2 = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
 
-//   it("Set isloading state to true", () => {
-//     const newState = {
-//       characters: [],
-//       isLoading: true,
-//       error: null,
-//     };
-//     const reducerReturnValue = charactersSlice(undefined, {
-//       type: "characters/setCharactersLoading",
-//       payload: true,
-//     });
-//     expect(JSON.stringify(reducerReturnValue)).toBe(JSON.stringify(newState));
-//   });
+    await store2.dispatch(fetchCharactersAsync());
+    expect(JSON.stringify(store2.getState().characters.data)).toBe(
+      JSON.stringify([characterData])
+    );
+  });
 
-//   it("Set is characterError to true", () => {
-//     const newState = {
-//       characters: [],
-//       isLoading: false,
-//       error: "An Example Error Message",
-//     };
-//     const reducerReturnValue = charactersSlice(undefined, {
-//       type: "characters/setCharactersError",
-//       payload: "An Example Error Message",
-//     });
-//     expect(JSON.stringify(reducerReturnValue)).toBe(JSON.stringify(newState));
-//   });
-// });
+  it("Set is characterError to true", async () => {
+    const store = configureStore({
+      preloadedState: initialState,
+      reducer: rootReducer,
+    });
+    fetchData.mockImplementation(() => {
+      throw Error("Bad things have happened");
+    });
+    await store.dispatch(fetchCharactersAsync());
+
+    expect(store.getState().characters.error).toBe(
+      "(0 , utils_1.rejectWithValue) is not a function"
+    );
+  });
+});

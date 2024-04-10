@@ -24,7 +24,9 @@ exports[`CharacterCard renders correctly 1`] = `
             >
               3-D Man Test
             </h5>
-            &lt;Description /&gt;
+            <div>
+              Description
+            </div>
           </div>
           <div
             class="text-center mb-4"
@@ -60,7 +62,9 @@ exports[`CharacterCard renders correctly 1`] = `
           >
             3-D Man Test
           </h5>
-          &lt;Description /&gt;
+          <div>
+            Description
+          </div>
         </div>
         <div
           class="text-center mb-4"
